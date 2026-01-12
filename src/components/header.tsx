@@ -1,0 +1,62 @@
+"use client";
+
+import { useEffect, useLayoutEffect, useState } from "react";
+import Logo from "../../public/logo.png";
+import Image from "next/image";
+import Button from "./button";
+
+function Header() {
+    const [scrolled, setScrolled] = useState(false);
+
+    const tabs = [
+        { name: "Home", path: "/home" },
+        { name: "Produtos", path: "/produtos" },
+        { name: "Qualidade", path: "/qualidade" },
+        { name: "Empresa", path: "/empresa" },
+        { name: "Contato", path: "/contato" },
+    ];
+
+    useLayoutEffect(() => {
+        setScrolled(window.scrollY > 10);
+    }, []);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    return (
+        <header
+            className={`w-full h-16 fixed left-1/2 -translate-x-1/2 z-50
+                backdrop-blur-md container flex justify-evenly items-center px-4 rounded-2xl gap-8
+                transition-all duration-300 ease-in-out border w-full top-[30px]
+                ${scrolled
+                            ? "bg-white max-w-4/5 md:max-w-[800px] border-muted/40"
+                            : "max-w-4/5 border-transparent"
+                        }
+            `}
+        >
+            <Image 
+                src={Logo.src}
+                width={60}
+                height={60}
+                alt="Logo"
+            />
+
+            <ul className="flex items-center gap-6">
+                {tabs.map(tab => (
+                    <li key={tab.path}>
+                        {tab.name}
+                    </li>
+                ))}
+            </ul>
+
+            <Button>
+                <a href="#fale-conosco">Fale Conosco</a>
+            </Button>
+        </header>
+    );
+}
+
+export default Header;
