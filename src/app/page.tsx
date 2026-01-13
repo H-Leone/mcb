@@ -23,6 +23,25 @@ function HomePage() {
         { name: "Imobiliário/Construção", icon: <Building size={60} /> },
     ];
 
+    const testimonials = [
+        {
+            name: "Fernanda Lopes",
+            role: "Gerente de Compras",
+            company: "Indústria Plasteel",
+            avatar: "/testimonials/fernanda.jpg",
+            rating: 5,
+            text: "Trabalhar com a Marcobi facilita muito nossa rotina. Além da qualidade dos produtos, o suporte técnico e o cumprimento de prazos fazem toda a diferença no relacionamento comercial."
+        },
+        {
+            name: "Rafael Monteiro",
+            role: "Coordenador de Desenvolvimento",
+            company: "TecnoParts",
+            avatar: "/testimonials/rafael.jpg",
+            rating: 5,
+            text: "Utilizamos soluções da Marcobi em diferentes aplicações industriais. A performance dos revestimentos e a flexibilidade técnica para atender necessidades específicas são pontos fortes da empresa."
+        }
+    ]
+
     return (
         <div className="h-[2000px] pt-32">
             <Header />
@@ -60,7 +79,7 @@ function HomePage() {
             </section>
 
             <section className="my-24 space-y-16">
-                <p className="text-3xl font-medium text-center">Para cada momento, um Nubank diferente</p>
+                <p className="text-3xl font-medium text-center">Para cada necessidade, um produto diferente</p>
 
                 <div className="flex justify-center items-center gap-6">
                     {[1, 2, 3].map(item => (
@@ -71,16 +90,50 @@ function HomePage() {
                 </div>
             </section>
 
-            <section className="bg-slate-300 w-full mx-auto my-24 p-20 space-y-10">
-                <p className="w-3/4 text-lg text-center mx-auto">Atendemos as principais empresas que concentram 47,8% do mercado brasileiro de cosméticos, com um faturamento de cerca de R$34,7 bilhões ao ano.</p>
+            <section className="relative overflow-hidden bg-slate-300 w-full mx-auto my-24 py-50">
+                <svg
+                    className="absolute top-0 left-0 w-full"
+                    viewBox="0 0 1440 140"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        fill="#F9F8F6"
+                        d="M0,90 C240,130 480,50 720,50 960,50 1200,130 1440,90 L1440,0 L0,0 Z"
+                    />
+                </svg>
 
-                <ul className="grid grid-cols-3 gap-6">
-                    {[1, 2, 3].map((item) => (
-                        <div key={item} className="border h-72">
-                            Parceiro {item}
-                        </div>
-                    ))}
-                </ul>
+                <svg
+                    className="absolute bottom-0 left-0 w-full"
+                    viewBox="0 0 1440 160"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        fill="#F9F8F6"
+                        d="M0,110 
+                            C180,140 360,80 540,95 
+                            C720,110 900,150 1080,120 
+                            C1260,95 1350,70 1440,85 
+                            L1440,160 
+                            L0,160 Z"
+                    />
+                </svg>
+
+                <div className="relative z-10 px-20 space-y-10">
+                    <p className="w-3/4 text-lg text-center mx-auto">
+                        Atendemos as principais empresas que concentram 47,8% do mercado brasileiro de cosméticos, com um faturamento de cerca de R$34,7 bilhões ao ano.
+                    </p>
+
+                    <ul className="grid grid-cols-3 gap-6">
+                        {[1, 2, 3].map(item => (
+                            <div
+                                key={item}
+                                className="bg-white rounded-xl h-72 flex items-center justify-center shadow-sm"
+                            >
+                                Parceiro {item}
+                            </div>
+                        ))}
+                    </ul>
+                </div>
             </section>
 
             <section className="px-16 space-y-8">
@@ -90,25 +143,74 @@ function HomePage() {
                     respeitando as exigências técnicas de cada processo produtivo.</p>
 
                 <div className="grid grid-cols-4 gap-6">
-                    {segments.map(segment => (
-                        <div key={segment.name} className="flex flex-col items-center bg-blue/40 text-center p-8 rounded-xl space-y-8">
-                            {segment.icon}
-                            <p className="text-xl font-medium">{segment.name}</p>
-                        </div>
-                    ))}
+                    {segments.map((segment, index) => {
+                        const col = index % 4
+                        const row = Math.floor(index / 4)
+                        const isDark = (row + col) % 2 === 0
+
+                        return (
+                            <div
+                                key={segment.name}
+                                className={`flex flex-col items-center text-center p-8 rounded-xl space-y-8 ${isDark ? "bg-blue/40" : "bg-blue/20"
+                                    }`}
+                            >
+                                {segment.icon}
+                                <p className="text-xl font-medium">{segment.name}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </section>
 
-            <section className="px-12 py-20">
-                <p className="text-3xl font-semibold text-center">O que os clientes dizem</p>
+            <section className="px-12 py-32">
+                <p className="text-3xl font-semibold text-center">
+                    O que os clientes dizem
+                </p>
 
-                <p className="w-xl text-center mx-auto mt-4 mb-12">A confiança de empresas que utilizam as soluções Marcobi em seus processos produtivos.</p>
+                <p className="w-xl text-center mx-auto mt-4 mb-12">
+                    A confiança de empresas que utilizam as soluções Marcobi em seus processos produtivos.
+                </p>
 
-                <ul className="w-2/3 mx-auto grid grid-cols-2 gap-6">
-                    {[1,2].map(diniz => (
-                        <div key={diniz} className="border">
-                            Pessoa {diniz}
-                        </div>
+                <ul className="w-4/5 mx-auto grid grid-cols-2 gap-8">
+                    {testimonials.map((t, index) => (
+                        <li
+                            key={index}
+                            className="bg-blue/20 rounded-2xl p-8 space-y-6"
+                        >
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-4">
+                                    <Image
+                                        src={t.avatar}
+                                        alt={t.name}
+                                        width={56}
+                                        height={56}
+                                        className="rounded-full object-cover"
+                                    />
+
+                                    <div>
+                                        <p className="font-semibold text-blue-900">
+                                            {t.name}
+                                        </p>
+
+                                        <div className="flex items-center gap-1 text-orange-400">
+                                            {"★".repeat(t.rating)}
+                                        </div>
+
+                                        <p className="text-sm text-gray-500">
+                                            {t.role} • {t.company}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <span className="text-4xl font-bold text-blue-500">
+                                    G
+                                </span>
+                            </div>
+
+                            <div className="border-t pt-6 text-gray-700 leading-relaxed">
+                                {t.text}
+                            </div>
+                        </li>
                     ))}
                 </ul>
             </section>

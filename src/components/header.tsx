@@ -30,14 +30,14 @@ function Header() {
         <header
             className={`w-full h-16 fixed left-1/2 -translate-x-1/2 z-50
                 backdrop-blur-md container flex justify-evenly items-center px-4 rounded-2xl gap-8
-                transition-all duration-300 ease-in-out border w-full top-[30px]
+                transition-all duration-300 ease-in-out border top-[30px]
                 ${scrolled
-                            ? "bg-white max-w-4/5 md:max-w-[800px] border-muted/40"
-                            : "max-w-4/5 border-transparent"
-                        }
+                    ? "bg-white/50 max-w-4/5 md:max-w-[800px] border-neutral-200"
+                    : "bg-transparent max-w-4/5 border-transparent"
+                }
             `}
         >
-            <Image 
+            <Image
                 src={Logo.src}
                 width={60}
                 height={60}
@@ -46,9 +46,7 @@ function Header() {
 
             <ul className="flex items-center gap-6">
                 {tabs.map(tab => (
-                    <li key={tab.path}>
-                        {tab.name}
-                    </li>
+                    <li key={tab.path}>{tab.name}</li>
                 ))}
             </ul>
 
