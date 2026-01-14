@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Button from "./button";
+import Link from "next/link";
 
 function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -44,11 +45,13 @@ function Header() {
                 alt="Logo"
             />
 
-            <ul className="flex items-center gap-6">
+            <nav className="flex items-center gap-6">
                 {tabs.map(tab => (
-                    <li key={tab.path}>{tab.name}</li>
+                    <Link key={tab.path} href={tab.path}>
+                        {tab.name}
+                    </Link>
                 ))}
-            </ul>
+            </nav>
 
             <Button>
                 <a href="#fale-conosco">Fale Conosco</a>
