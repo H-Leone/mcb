@@ -10,10 +10,10 @@ function Header() {
     const [scrolled, setScrolled] = useState(false);
 
     const tabs = [
-        { name: "Home", path: "/home" },
-        { name: "Produtos", path: "/produtos" },
-        { name: "Qualidade", path: "/qualidade" },
-        { name: "Empresa", path: "/empresa" },
+        { name: "Home", path: "/" },
+        { name: "Produtos", path: "/products" },
+        { name: "Qualidade", path: "/quality" },
+        { name: "Empresa", path: "/enterprise" },
         { name: "Contato", path: "/contato" },
     ];
 

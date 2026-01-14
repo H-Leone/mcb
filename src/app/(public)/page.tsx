@@ -1,9 +1,7 @@
-import Header from "@/components/header";
-import SobreNos from "../../public/sobre-nos-landing.jpeg";
+import SobreNos from "../../../public/sobre-nos-landing.jpeg";
 import Image from "next/image";
 import Button from "@/components/button";
 import { Baby, Boxes, Building, CalendarPlus, Car, Footprints, Gavel, HandPlatter, Smartphone, Tractor, TrendingUp } from "lucide-react";
-import Footer from "@/components/footer";
 
 function HomePage() {
     const infos = [
@@ -43,9 +41,7 @@ function HomePage() {
     ]
 
     return (
-        <div className="h-[2000px] pt-32">
-            <Header />
-
+        <>
             <section className="flex justify-around w-11/12 mx-auto mt-12 mb-24 px-12">
                 <div className="space-y-10">
                     <p className="text-4xl font-semibold">Sobre Nós</p>
@@ -214,9 +210,7 @@ function HomePage() {
                     ))}
                 </ul>
             </section>
-
-            <Footer />
-        </div>
+        </>
     );
 }
 

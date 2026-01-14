@@ -1,6 +1,3 @@
-// src/app/empresa/page.tsx
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import SectionHeader from "@/components/section-header"
 import StatCard from "@/components/card2"
 import Timeline from "@/components/timeline"
@@ -9,9 +6,6 @@ import ValuesGrid from "@/components/values-grid"
 export default function EmpresaPage() {
   return (
     <>
-      <Header />
-
-      {/* HERO */}
       <section className="pt-32 pb-24 text-center bg-gray-50">
         <SectionHeader
           title="Nossa história"
@@ -95,8 +89,6 @@ export default function EmpresaPage() {
           />
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

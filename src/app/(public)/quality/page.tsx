@@ -1,12 +1,10 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import Button from "@/components/button";
 import SectionHeader from "@/components/section-header";
 import FeatureCard from "@/components/card";
 import ProcessList from "@/components/process-list";
 import Image from "next/image";
 import { ClipboardCheck, ShieldCheck, TrendingUp, FlaskConical } from "lucide-react";
-import SobreNos from "../../../public/sobre-nos-landing.jpeg";
+import SobreNos from "../../../../public/sobre-nos-landing.jpeg";
 
 export default function QualidadePage() {
   const pilares = [
@@ -39,9 +37,7 @@ export default function QualidadePage() {
   ];
 
   return (
-    <div className="pt-32">
-      <Header />
-
+    <>
       <section className="w-11/12 mx-auto grid grid-cols-2 gap-16 items-center py-24">
         <div className="space-y-8">
           <h1 className="text-4xl font-semibold">
@@ -126,19 +122,16 @@ export default function QualidadePage() {
         </div>
       </section>
 
-        <section className="py-32 text-center space-y-8">
-          <SectionHeader
-            title="Qualidade aplicada à sua necessidade"
-            subtitle="Nossa equipe está pronta para apoiar tecnicamente o seu projeto e indicar a melhor solução para cada aplicação."
-          />
+      <section className="py-32 text-center space-y-8">
+        <SectionHeader
+          title="Qualidade aplicada à sua necessidade"
+          subtitle="Nossa equipe está pronta para apoiar tecnicamente o seu projeto e indicar a melhor solução para cada aplicação."
+        />
 
-          <div className="flex justify-center">
-            <Button redirect="/contato">Entrar em contato</Button>
-          </div>
+        <div className="flex justify-center">
+          <Button redirect="/contato">Entrar em contato</Button>
+        </div>
       </section>
-
-
-      <Footer />
-    </div>
+    </>
   );
 }
