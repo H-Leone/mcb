@@ -86,14 +86,14 @@ function HomePage() {
                 </div>
             </section>
 
-            <section className="relative overflow-hidden bg-slate-300 w-full mx-auto my-24 py-50">
+            <section className="relative overflow-hidden bg-blue/30 w-full mx-auto my-24 py-50">
                 <svg
                     className="absolute top-0 left-0 w-full"
                     viewBox="0 0 1440 140"
                     preserveAspectRatio="none"
                 >
                     <path
-                        fill="#F9F8F6"
+                        fill="#D2E1EB"
                         d="M0,90 C240,130 480,50 720,50 960,50 1200,130 1440,90 L1440,0 L0,0 Z"
                     />
                 </svg>
@@ -104,7 +104,7 @@ function HomePage() {
                     preserveAspectRatio="none"
                 >
                     <path
-                        fill="#F9F8F6"
+                        fill="#D2E1EB"
                         d="M0,110 
                             C180,140 360,80 540,95 
                             C720,110 900,150 1080,120 

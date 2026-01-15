@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F9F8F6;
+  --color-background: #D2E1EB;
   --color-white: #f8f8f8;
   --color-green: #016749;
   --color-blue: #00548e;
+  --color-border: #2d333d;
 
   --breakpoint-xs: 540px;
   --breakpoint-xxs: 400px;

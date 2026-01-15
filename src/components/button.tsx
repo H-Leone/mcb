@@ -4,20 +4,22 @@ import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 interface ButtonProps {
-    click?: (e?: unknown) => void;
+    click?: (value?: string) => void;
     children: ReactNode;
+    value?: string | null;
     redirect?: string;
     variant?: "primary" | "secondary" | "transparent" | "card" | "critical";
     disabled?: boolean;
     type?: "button" | "submit";
     className?: string;
-    selected?: boolean
+    selected?: boolean;
 }
 
 function Button({
     children,
     redirect,
     click,
+    value,
     variant = "primary",
     disabled,
     type,
@@ -27,22 +29,22 @@ function Button({
     const router = useRouter();
 
     const handleClick = () => {
-        if (click) return click();
+        if (click) return click(value ?? undefined);
         if (redirect) router.push(redirect);
     };
 
     const getVariant = () => {
         switch (variant) {
             case "primary":
-                return "bg-blue hover:bg-primary/80 disabled:brightness-60 font-medium";
+                return "bg-blue hover:bg-primary/80 disabled:brightness-60 font-medium text-white";
             case "secondary":
-                return "bg-zinc-800/40 hover:bg-zinc-700/40 border border-white/20 disabled:brightness-60 font-medium";
+                return "bg-zinc-800/40 hover:bg-zinc-700/40 border border-white/20 disabled:brightness-60 font-medium text-white";
             case "transparent":
-                return "bg-transparent hover:bg-muted/10 font-normal";
+                return "bg-transparent hover:bg-muted/10 font-normal text-black";
             case "card":
-                return `bg-background hover:bg-muted/5 disabled:brightness-60 border font-medium ${selected ? "border-primary bg-primary/5" : "border-border hover:border-muted"}`;
+                return `bg-background hover:bg-muted/5 disabled:brightness-60 border font-medium text-white ${selected ? "border-primary bg-primary/5" : "border-border hover:border-muted"}`;
             case "critical":
-                return "bg-error hover:bg-error/75 disabled:brightness-60";
+                return "bg-error hover:bg-error/75 disabled:brightness-60 text-white";
             default:
                 return "";
         }
@@ -53,7 +55,7 @@ function Button({
             disabled={disabled}
             onClick={handleClick}
             type={type ?? "button"}
-            className={`flex items-center gap-2 text-sm text-white px-4 py-2 rounded-md whitespace-nowrap cursor-pointer transition duration-300 select-none disabled:cursor-not-allowed ${getVariant()} ${className}`}
+            className={`flex items-center gap-2 text-sm px-4 py-2 rounded-md whitespace-nowrap cursor-pointer transition duration-300 select-none disabled:cursor-not-allowed ${getVariant()} ${className}`}
         >
             {children}
         </button>

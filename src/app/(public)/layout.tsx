@@ -13,9 +13,9 @@ function PublicLayout({ children }: PublicLayoutProps) {
 
             <PageTransition>
                 {children}
-                
-                <Footer />
             </PageTransition>
+
+            <Footer />
         </div>
     );
 }
