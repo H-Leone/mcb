@@ -1,24 +1,28 @@
-import SobreNos from "../../../public/sobre-nos-landing.jpeg";
 import Image from "next/image";
 import Button from "@/components/button";
-import { Baby, Boxes, Building, CalendarPlus, Car, Footprints, Gavel, HandPlatter, Smartphone, Tractor, TrendingUp } from "lucide-react";
+import HeroSection from "@/components/hero-section"; 
+import ProductCarousel from "@/components/product-carousel";
+import PartnersSection from "@/components/partner-section";
+
+import SobreNos from "../../../public/sobre-nos-landing.jpeg";
+import { Baby, Boxes, Building, CalendarPlus, Car, Footprints, Gavel, HandPlatter, Quote, Smartphone, Tractor, TrendingUp } from "lucide-react";
 
 function HomePage() {
     const infos = [
-        { title: "+ de 30", subtitle: "Anos de experiência", description: "Atuação consolidada no  fornecimento de tintas e revestimentos industriais para diferentes aplicações e níveis de exigência.", icon: <CalendarPlus size={45} /> },
-        { title: "100+", subtitle: "Produtos no portifólio", description: "Portfólio completo de tintas, vernizes, primers, fundos, diluentes e soluções técnicas desenvolvidas para uso industrial.", icon: <TrendingUp size={45} /> },
-        { title: "+ 10", subtitle: "Segmentos atendidos", description: "Soluções aplicadas em diferentes segmentos industriais, atendendo demandas específicas de cada processo produtivo.", icon: <Boxes size={45} /> },
+        { title: "+ de 30", subtitle: "Anos de experiência", description: "Atuação consolidada no fornecimento de tintas e revestimentos industriais para diferentes aplicações.", icon: <CalendarPlus size={45} /> },
+        { title: "100+", subtitle: "Produtos no portfólio", description: "Portfólio completo de tintas, vernizes, primers, fundos e diluentes.", icon: <TrendingUp size={45} /> },
+        { title: "+ 10", subtitle: "Segmentos atendidos", description: "Soluções aplicadas em diferentes segmentos industriais.", icon: <Boxes size={45} /> },
     ];
 
     const segments = [
-        { name: "Metal-Mecânico", icon: <Gavel size={60} /> },
-        { name: "Automotivo", icon: <Car size={60} /> },
-        { name: "Implementos Agrícolas", icon: <Tractor size={60} /> },
-        { name: "Eletroeletrônicos", icon: <Smartphone size={60} /> },
-        { name: "Moveleiro", icon: <HandPlatter size={60} /> },
-        { name: "Calçadista", icon: <Footprints size={60} /> },
-        { name: "Cosméticos", icon: <Baby size={60} /> },
-        { name: "Imobiliário/Construção", icon: <Building size={60} /> },
+        { name: "Metal-Mecânico", icon: <Gavel size={48} /> },
+        { name: "Automotivo", icon: <Car size={48} /> },
+        { name: "Agrícola", icon: <Tractor size={48} /> },
+        { name: "Eletrônicos", icon: <Smartphone size={48} /> },
+        { name: "Moveleiro", icon: <HandPlatter size={48} /> },
+        { name: "Calçadista", icon: <Footprints size={48} /> },
+        { name: "Cosméticos", icon: <Baby size={48} /> },
+        { name: "Construção", icon: <Building size={48} /> },
     ];
 
     const testimonials = [
@@ -28,189 +32,174 @@ function HomePage() {
             company: "Indústria Plasteel",
             avatar: "/testimonials/fernanda.jpg",
             rating: 5,
-            text: "Trabalhar com a Marcobi facilita muito nossa rotina. Além da qualidade dos produtos, o suporte técnico e o cumprimento de prazos fazem toda a diferença no relacionamento comercial."
+            text: "Trabalhar com a Marcobi facilita muito nossa rotina. Além da qualidade dos produtos, o suporte técnico e o cumprimento de prazos fazem toda a diferença."
         },
         {
             name: "Rafael Monteiro",
-            role: "Coordenador de Desenvolvimento",
+            role: "Coord. Desenvolvimento",
             company: "TecnoParts",
             avatar: "/testimonials/rafael.jpg",
             rating: 5,
-            text: "Utilizamos soluções da Marcobi em diferentes aplicações industriais. A performance dos revestimentos e a flexibilidade técnica para atender necessidades específicas são pontos fortes da empresa."
+            text: "A performance dos revestimentos e a flexibilidade técnica para atender necessidades específicas são pontos fortes da empresa."
         }
-    ]
+    ];
 
     return (
-        <>
-            <section className="flex justify-around w-11/12 mx-auto mt-12 mb-24 px-12">
-                <div className="space-y-10">
-                    <p className="text-4xl font-semibold">Sobre Nós</p>
-                    <p className="text-xl w-3/4">Desenvolvemos soluções técnicas para diferentes aplicações e segmentos industriais, com foco em desempenho, qualidade e confiabilidade</p>
+        <main className="w-full overflow-x-hidden text-slate-800">
+            <HeroSection />
 
-                    <Button redirect="/empresa">
-                        Nossa história
-                    </Button>
-                </div>
-
-                <Image
-                    src={SobreNos}
-                    alt="Sobre Nós Imagem"
-                    width={400}
-                    height={70}
-                    className="rounded-xl"
-                />
-            </section>
-
-            <section className="grid grid-cols-3 gap-6 mx-8 py-16">
-                {infos.map((info) => (
-                    <div key={info.title} className="space-y-4 text-center flex flex-col items-center">
-                        <span className="text-green">
-                            {info.icon}
-                        </span>
-                        <p className="text-green text-3xl font-semibold">{info.title}</p>
-                        <p className="text-xl text-green">{info.subtitle}</p>
-                        <p className="w-10/12 mx-auto mt-4">{info.description}</p>
+            <section className="container mx-auto px-6 py-20 md:py-32">
+                <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                    <div className="md:w-1/2 space-y-8 text-center md:text-left">
+                        <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Quem somos</span>
+                        <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                            Soluções técnicas em tintas e vernizes industriais
+                        </h2>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Desenvolvemos soluções personalizadas para diferentes aplicações e segmentos, com foco inegociável em desempenho, qualidade e confiabilidade.
+                        </p>
+                        <div className="pt-4 flex justify-center md:justify-start">
+                            <Button redirect="/empresa">
+                                Nossa história
+                            </Button>
+                        </div>
                     </div>
-                ))}
+
+                    <div className="md:w-5/12 relative">
+                        <div className="absolute -inset-4 bg-blue-100 rounded-xl -z-10 rotate-3"></div>
+                        <Image
+                            src={SobreNos}
+                            alt="Fábrica de tintas e vernizes"
+                            width={500}
+                            height={400}
+                            className="rounded-xl shadow-lg w-full object-cover h-[350px]"
+                        />
+                    </div>
+                </div>
             </section>
 
-            <section className="my-24 space-y-16">
-                <p className="text-3xl font-medium text-center">Para cada necessidade, um produto diferente</p>
-
-                <div className="flex justify-center items-center gap-6">
-                    {[1, 2, 3].map(item => (
-                        <div key={item} className="border w-48 h-72">
-                            <p>Produto {item}</p>
+            <section className="bg-slate-50 py-20">
+                <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+                    {infos.map((info) => (
+                        <div key={info.title} className="flex flex-col items-center text-center space-y-4 p-6 hover:bg-white hover:shadow-md transition-all rounded-lg">
+                            <span className="text-blue-600 bg-blue-50 p-4 rounded-full">
+                                {info.icon}
+                            </span>
+                            <h3 className="text-blue-900 text-4xl font-bold">{info.title}</h3>
+                            <p className="text-xl font-semibold text-slate-700">{info.subtitle}</p>
+                            <p className="text-gray-600 leading-relaxed">{info.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            <section className="relative overflow-hidden bg-blue/30 w-full mx-auto my-24 py-50">
-                <svg
-                    className="absolute top-0 left-0 w-full"
-                    viewBox="0 0 1440 140"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        fill="#D2E1EB"
-                        d="M0,90 C240,130 480,50 720,50 960,50 1200,130 1440,90 L1440,0 L0,0 Z"
-                    />
-                </svg>
+            <section className="py-24 space-y-12 container mx-auto px-6">
+                <div className="text-center max-w-2xl mx-auto space-y-4">
+                    <h2 className="text-3xl md:text-4xl font-bold">Linha de Produtos</h2>
+                    <p className="text-gray-600 text-lg">Para cada necessidade industrial, uma solução técnica específica.</p>
+                </div>
+                
+                <ProductCarousel />
+            </section>
 
-                <svg
-                    className="absolute bottom-0 left-0 w-full"
-                    viewBox="0 0 1440 160"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        fill="#D2E1EB"
-                        d="M0,110 
-                            C180,140 360,80 540,95 
-                            C720,110 900,150 1080,120 
-                            C1260,95 1350,70 1440,85 
-                            L1440,160 
-                            L0,160 Z"
-                    />
-                </svg>
+            <section className="relative w-full py-32 bg-blue-50/50">
+                <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
+                    <svg className="relative block w-[calc(100%+1.3px)] h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#FFFFFF"></path>
+                    </svg>
+                </div>
 
-                <div className="relative z-10 px-20 space-y-10">
-                    <p className="w-3/4 text-lg text-center mx-auto">
-                        Atendemos as principais empresas que concentram 47,8% do mercado brasileiro de cosméticos, com um faturamento de cerca de R$34,7 bilhões ao ano.
-                    </p>
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+                            Parceria com quem movimenta o mercado
+                        </h2>
+                        <p className="text-gray-600">
+                            Atendemos empresas que concentram grande parte do mercado brasileiro, fornecendo insumos críticos para suas linhas de produção.
+                        </p>
+                    </div>
+                    <PartnersSection />
+                </div>
 
-                    <ul className="grid grid-cols-3 gap-6">
-                        {[1, 2, 3].map(item => (
-                            <div
-                                key={item}
-                                className="bg-white rounded-xl h-72 flex items-center justify-center shadow-sm"
-                            >
-                                Parceiro {item}
-                            </div>
-                        ))}
-                    </ul>
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+                     <svg className="relative block w-[calc(100%+1.3px)] h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#FFFFFF"></path>
+                    </svg>
                 </div>
             </section>
 
-            <section className="px-16 space-y-8">
-                <p className="text-3xl font-semibold text-center">Segmentos Atendidos</p>
+            <section className="container mx-auto px-6 py-24">
+                <div className="text-center mb-16 space-y-4">
+                    <h2 className="text-3xl font-bold">Segmentos Atendidos</h2>
+                    <p className="text-gray-600 max-w-xl mx-auto">
+                        Tecnologia aplicada respeitando as exigências técnicas de cada processo produtivo.
+                    </p>
+                </div>
 
-                <p className="w-xl text-center mx-auto mb-12">Soluções aplicadas a diferentes segmentos industriais,
-                    respeitando as exigências técnicas de cada processo produtivo.</p>
-
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     {segments.map((segment, index) => {
-                        const col = index % 4
-                        const row = Math.floor(index / 4)
-                        const isDark = (row + col) % 2 === 0
-
+                        const isPrimary = index % 2 === 0;
                         return (
                             <div
                                 key={segment.name}
-                                className={`flex flex-col items-center text-center p-8 rounded-xl space-y-8 ${isDark ? "bg-blue/40" : "bg-blue/20"
-                                    }`}
+                                className={`flex flex-col items-center justify-center text-center p-8 rounded-xl space-y-4 transition-transform hover:-translate-y-1 hover:shadow-lg border ${
+                                    isPrimary ? "bg-white border-blue-100" : "bg-blue-50/50 border-blue-50"
+                                }`}
                             >
-                                {segment.icon}
-                                <p className="text-xl font-medium">{segment.name}</p>
+                                <div className="text-blue-600">{segment.icon}</div>
+                                <p className="text-lg font-medium text-slate-700">{segment.name}</p>
                             </div>
                         )
                     })}
                 </div>
             </section>
 
-            <section className="px-12 py-32">
-                <p className="text-3xl font-semibold text-center">
-                    O que os clientes dizem
-                </p>
+            <section className="py-24 bg-slate-900 text-white">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold">O que dizem nossos clientes</h2>
+                        <p className="text-slate-400 mt-4">Confiança construída entrega após entrega.</p>
+                    </div>
 
-                <p className="w-xl text-center mx-auto mt-4 mb-12">
-                    A confiança de empresas que utilizam as soluções Marcobi em seus processos produtivos.
-                </p>
-
-                <ul className="w-4/5 mx-auto grid grid-cols-2 gap-8">
-                    {testimonials.map((t, index) => (
-                        <li
-                            key={index}
-                            className="bg-blue/20 rounded-2xl p-8 space-y-6"
-                        >
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                    <Image
-                                        src={t.avatar}
-                                        alt={t.name}
-                                        width={56}
-                                        height={56}
-                                        className="rounded-full object-cover"
-                                    />
-
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {testimonials.map((t, index) => (
+                            <div key={index} className="bg-slate-800 p-8 rounded-2xl relative">
+                                <Quote className="absolute top-8 right-8 text-slate-700 w-12 h-12 rotate-180" />
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-14 h-14 rounded-full bg-slate-600 overflow-hidden relative">
+                                         <Image 
+                                            src={t.avatar} 
+                                            alt={t.name} 
+                                            fill
+                                            className="object-cover"
+                                         />
+                                    </div>
                                     <div>
-                                        <p className="font-semibold text-blue-900">
-                                            {t.name}
-                                        </p>
-
-                                        <div className="flex items-center gap-1 text-orange-400">
-                                            {"★".repeat(t.rating)}
-                                        </div>
-
-                                        <p className="text-sm text-gray-500">
-                                            {t.role} • {t.company}
-                                        </p>
+                                        <p className="font-semibold text-lg">{t.name}</p>
+                                        <p className="text-sm text-slate-400">{t.role}</p>
+                                        <p className="text-xs text-blue-400 uppercase tracking-wide mt-1">{t.company}</p>
                                     </div>
                                 </div>
-
-                                <span className="text-4xl font-bold text-blue-500">
-                                    G
-                                </span>
+                                <p className="text-slate-300 leading-relaxed italic">"{t.text}"</p>
+                                <div className="flex text-yellow-500 gap-1 mt-4 text-sm">
+                                    {"★".repeat(t.rating)}
+                                </div>
                             </div>
-
-                            <div className="border-t pt-6 text-gray-700 leading-relaxed">
-                                {t.text}
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                        ))}
+                    </div>
+                </div>
             </section>
-        </>
+            
+            <section className="py-20 text-center container mx-auto px-6">
+                <div className="bg-blue-600 rounded-3xl p-12 md:p-20 text-white shadow-2xl">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Pronto para elevar a qualidade do seu acabamento?</h2>
+                    <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">Solicite uma consultoria técnica gratuita e descubra o produto ideal para o seu processo.</p>
+                    <div className="flex justify-center gap-4 flex-col md:flex-row">
+                        <Button redirect="/contato">Falar com Consultor</Button>
+                    </div>
+                </div>
+            </section>
+        </main>
     );
 }
 
