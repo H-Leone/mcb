@@ -38,7 +38,7 @@ function Button({
             case "primary":
                 return "bg-blue hover:bg-primary/80 disabled:brightness-60 font-medium text-white";
             case "secondary":
-                return "bg-zinc-800/40 hover:bg-zinc-700/40 border border-white/20 disabled:brightness-60 font-medium text-white";
+                return "bg-white/5 hover:bg-zinc-700/40 border border-white/20 disabled:brightness-60 font-medium text-white backdrop-blur-sm";
             case "transparent":
                 return "bg-transparent hover:bg-muted/10 font-normal text-black";
             case "card":

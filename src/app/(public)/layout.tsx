@@ -8,7 +8,7 @@ interface PublicLayoutProps {
 
 function PublicLayout({ children }: PublicLayoutProps) {
     return (
-        <div className="pt-32">
+        <div>
             <Header />
 
             <PageTransition>

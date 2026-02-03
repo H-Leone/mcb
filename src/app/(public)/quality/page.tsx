@@ -1,13 +1,9 @@
-import Image from "next/image";
 import Button from "@/components/button";
-import PartnersSection from "@/components/partner-section";
-
-import PlaceholderImg from "../../../../public/sobre-nos-landing.jpeg";
 
 import { 
     Microscope, ShieldCheck, ClipboardCheck, 
     Award, FlaskConical, FileCheck, 
-    CheckCircle2, Factory, Scale, Fingerprint, Layers 
+    CheckCircle2, Factory, Fingerprint, Layers 
 } from "lucide-react";
 
 
@@ -57,7 +53,7 @@ function QualityPage() {
     return (
         <main className="w-full overflow-x-hidden text-slate-800 bg-white">
             
-            <section className="relative w-full py-32 flex flex-col items-center justify-center text-center bg-white pattern-grid-lg">
+            <section className="relative w-full pt-48 pb-32 flex flex-col items-center justify-center text-center bg-white pattern-grid-lg">
                 <div className="container mx-auto px-6 z-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono uppercase tracking-widest mb-6">
                         <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -77,7 +73,7 @@ function QualityPage() {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
             </section>
 
-            <section className="w-full bg-slate-900 text-white py-12">
+            <section className="w-full bg-slate-900 text-white py-18">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 divide-x divide-slate-700/50">
                         {QUALITY_STATS.map((stat, i) => (
@@ -132,6 +128,22 @@ function QualityPage() {
                 </div>
             </section>
 
+            <section className="relative w-full h-[500px] md:h-[600px] bg-fixed bg-center bg-cover my-0" style={{ backgroundImage: "url('/sobre-nos-landing.jpeg')" }}> {/* Usando style inline para simular bg-fixed com a imagem placeholder, idealmente use o componente Image com position absolute e fixed se preferir, mas bg-fixed css dá um efeito parallax legal aqui */}
+               <div className="absolute inset-0 bg-slate-900/80"></div>
+               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                    <Microscope className="text-emerald-400 w-16 h-16 mb-6 opacity-80" />
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Laboratório de Ponta</h2>
+                    <p className="text-slate-300 max-w-2xl text-lg mb-8">
+                        Realizamos testes de Salt Spray, Câmara Úmida e Intemperismo Artificial (UV) internamente.
+                    </p>
+                    <div className="flex gap-4">
+                        <button className="px-8 py-3 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition-all">
+                            Conhecer Equipamentos
+                        </button>
+                    </div>
+               </div>
+            </section>
+
             <section className="py-24 bg-slate-50 border-y border-slate-200">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                     <div className="md:w-1/3 space-y-6">
@@ -154,34 +166,6 @@ function QualityPage() {
                                 <span className="font-semibold text-slate-700">{cert.name}</span>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="relative w-full h-[500px] md:h-[600px] bg-fixed bg-center bg-cover my-0" style={{ backgroundImage: "url('/sobre-nos-landing.jpeg')" }}> {/* Usando style inline para simular bg-fixed com a imagem placeholder, idealmente use o componente Image com position absolute e fixed se preferir, mas bg-fixed css dá um efeito parallax legal aqui */}
-               <div className="absolute inset-0 bg-slate-900/80"></div>
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                    <Microscope className="text-emerald-400 w-16 h-16 mb-6 opacity-80" />
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Laboratório de Ponta</h2>
-                    <p className="text-slate-300 max-w-2xl text-lg mb-8">
-                        Realizamos testes de Salt Spray, Câmara Úmida e Intemperismo Artificial (UV) internamente.
-                    </p>
-                    <div className="flex gap-4">
-                        <button className="px-8 py-3 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition-all">
-                            Conhecer Equipamentos
-                        </button>
-                    </div>
-               </div>
-            </section>
-            
-            <section className="py-24 bg-white text-center container mx-auto px-6">
-                <div className="max-w-2xl mx-auto space-y-8">
-                    <h2 className="text-3xl font-bold text-slate-900">Pronto para auditar nossa qualidade?</h2>
-                    <p className="text-slate-600">
-                        Nossas portas estão abertas para visitas técnicas e homologação de fornecedores.
-                    </p>
-                    <div className="flex justify-center gap-4">
-                         <Button redirect="/contato">Falar com Qualidade</Button>
                     </div>
                 </div>
             </section>

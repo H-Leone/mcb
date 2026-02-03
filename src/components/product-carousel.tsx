@@ -1,62 +1,107 @@
-import Image from "next/image";
-import { PaintBucket, ShieldCheck, SprayCan, ArrowRight } from "lucide-react";
-import SobreNos from "../../public/sobre-nos-landing.jpeg";
+"use client"
+
+import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+import SobreNos from "../../public/sobre-nos-landing.jpeg"
+import { Pause, Play } from "lucide-react"
+
+const items = [
+    { id: 1, title: "Esmaltes Sintéticos" },
+    { id: 2, title: "Vernizes PU" },
+    { id: 3, title: "Primers Epóxi" }
+]
 
 export default function ProductCarousel() {
-    const originalProducts = [
-        { id: 1, name: "Esmaltes Sintéticos", desc: "Secagem rápida e alto brilho para acabamento premium.", icon: <PaintBucket className="w-6 h-6 text-white"/>, color: "bg-blue-600" },
-        { id: 2, name: "Vernizes PU", desc: "Alta resistência química e proteção UV duradoura.", icon: <SprayCan className="w-6 h-6 text-white"/>, color: "bg-indigo-600" },
-        { id: 3, name: "Primers Epóxi", desc: "Aderência superior e proteção anticorrosiva.", icon: <ShieldCheck className="w-6 h-6 text-white"/>, color: "bg-slate-700" },
-    ];
+    const [active, setActive] = useState(1)
+    const [paused, setPaused] = useState(false)
+    const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
-    const products = [...originalProducts, ...originalProducts, ...originalProducts, ...originalProducts];
+    const getPosition = (index: number) => {
+        const diff = index - active
+
+        if (diff === 0) return "z-30 scale-100 opacity-100 translate-x-0"
+        if (diff === -1 || diff === items.length - 1)
+            return "z-20 scale-95 opacity-70 -translate-x-[220px]"
+        if (diff === 1 || diff === -(items.length - 1))
+            return "z-20 scale-95 opacity-70 translate-x-[220px]"
+
+        return "opacity-0 pointer-events-none"
+    }
+
+    useEffect(() => {
+        if (paused) return
+
+        intervalRef.current = setInterval(() => {
+            setActive((prev) => (prev + 1) % items.length)
+        }, 3500)
+
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current)
+        }
+    }, [paused])
+
+    const goTo = (index: number) => {
+        setActive(index)
+        setPaused(true)
+    }
+
+    const togglePause = () => {
+        setPaused((p) => !p)
+    }
 
     return (
-        <div className="w-full overflow-hidden py-10 relative group">
-            
-            <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-
-            <div className="flex w-max animate-scroll group-hover:pause gap-8 pl-8">
-                {products.map((prod, index) => (
-                    <div 
-                        key={`${prod.id}-${index}`} 
-                        className="relative w-[350px] h-[450px] bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+        <section className="w-full pb-20">
+            <div className="relative h-[520px] flex items-center justify-center">
+                {items.map((item, index) => (
+                    <div
+                        key={item.id}
+                        onClick={() => goTo(index)}
+                        className={`absolute cursor-pointer transition-all duration-500 ease-out ${getPosition(
+                            index
+                        )}`}
                     >
-                        <div className="h-3/5 relative">
-                             <Image 
+                        <div className="w-[360px] h-[480px] rounded-[32px] overflow-hidden relative shadow-xl">
+                            <Image
                                 src={SobreNos}
-                                alt={prod.name}
+                                alt={item.title}
                                 fill
                                 className="object-cover"
-                             />
-                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                             
-                             <div className={`absolute top-4 right-4 ${prod.color} p-3 rounded-xl shadow-lg`}>
-                                {prod.icon}
-                             </div>
-
-                             <div className="absolute bottom-4 left-4 text-white">
-                                <p className="text-xs font-bold uppercase tracking-wider opacity-80">Linha Industrial</p>
-                                <h3 className="text-2xl font-bold">{prod.name}</h3>
-                             </div>
-                        </div>
-                        
-                        <div className="p-6 flex flex-col justify-between flex-1 bg-white">
-                            <p className="text-slate-600 leading-relaxed">
-                                {prod.desc}
-                            </p>
-                            
-                            <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
-                                <span className="text-xs font-semibold text-slate-400">Disponível em 18L e 200L</span>
-                                <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
-                                    <ArrowRight size={18} />
+                            />
+                            <div className="absolute inset-0 bg-black/30" />
+                            <div className="absolute bottom-8 left-8 right-8 text-white">
+                                <h3 className="text-3xl font-semibold">{item.title}</h3>
+                                <button className="mt-6 w-full bg-white/20 backdrop-blur py-3 rounded-full text-sm">
+                                    Saiba mais
                                 </button>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-        </div>
-    );
+
+            <div className="flex items-center justify-center gap-4 mt-10">
+                <div className="flex items-center bg-neutral-100 rounded-full px-4 py-3 gap-3">
+                    {items.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => goTo(index)}
+                            className={`transition-all duration-300 rounded-full ${index === active
+                                    ? "w-8 h-2 bg-neutral-800"
+                                    : "w-3 h-2 bg-neutral-300"
+                                }`}
+                        />
+                    ))}
+                </div>
+
+                <button
+                    onClick={togglePause}
+                    className="w-9 h-9 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-800 cursor-pointer"
+                >
+                    {paused ? 
+                        <Play size={17.5} /> :
+                        <Pause size={17.5} />}
+                </button>
+            </div>
+        </section>
+    )
 }

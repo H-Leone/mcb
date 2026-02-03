@@ -53,7 +53,7 @@ export default function EmpresaPage() {
   return (
     <main className="w-full bg-slate-50 text-slate-800">
       
-      <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
+      <section className="relative pt-52 pb-34 flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 z-0">
             <Image
                 src={SobreNos}
@@ -66,16 +66,16 @@ export default function EmpresaPage() {
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center space-y-6">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-slate-600 bg-slate-800/50 backdrop-blur-md text-slate-300 text-sm font-medium tracking-widest uppercase mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-slate-600 bg-slate-800/50 backdrop-blur-md text-slate-300 text-xs font-medium tracking-widest uppercase mb-4">
             Desde 1991
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-4xl mx-auto">
             Solidez construída com <br />
             <span className="text-blue-500">tecnologia e confiança.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="w-2/4 text-md text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Mais de três décadas desenvolvendo tintas e vernizes que protegem e valorizam a indústria brasileira.
           </p>
         </div>
@@ -194,7 +194,7 @@ export default function EmpresaPage() {
       </section>
 
       <section className="py-24 container mx-auto px-6">
-        <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
+        <div className="bg-white rounded-3xl overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 
                 <div className="p-10 md:p-16 space-y-8 flex flex-col justify-center">

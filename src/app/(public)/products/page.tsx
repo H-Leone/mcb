@@ -1,7 +1,7 @@
 import Button from "@/components/button";
 import Input, { InputEntry } from "@/components/input";
 import { categories, products } from "@/helpers";
-import { CircleQuestionMark, MoveRight } from "lucide-react";
+import { CircleQuestionMark, MoveRight, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -61,12 +61,15 @@ async function ProductsPage({ searchParams }: ProductsPageProps) {
     }
 
     return (
-        <div>
-            <div className="grid grid-cols-4 p-8 gap-8">
+        <div className="pt-40">
+            <div className="grid grid-cols-4 px-12 gap-8">
                 <div className="bg-white rounded-lg p-6 h-fit">
                     <p className="text-xl font-medium">Produtos</p>
 
-                    <Input initialValue={q} onChange={filterProduct} className="my-3" delay={300} />
+                    <div className="relative mt-1.5">
+                        <Search size={17.5} className="absolute left-4 top-1/2 -translate-y-1/2 text-border/65" />
+                        <Input initialValue={q} onChange={filterProduct} className="my-3 pl-11" delay={300} placeholder="Buscar..." />
+                    </div>
 
                     <hr className="my-6 w-10/12 mx-auto bg-slate-300 border-slate-300" />
 
