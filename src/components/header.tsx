@@ -5,15 +5,17 @@ import Logo from "../../public/logo.png";
 import Image from "next/image";
 import Button from "./button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Header() {
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
 
     const tabs = [
-        { name: "Home", path: "/home" },
-        { name: "Produtos", path: "/produtos" },
-        { name: "Qualidade", path: "/qualidade" },
-        { name: "Empresa", path: "/empresa" },
+        { name: "Home", path: "/" },
+        { name: "Produtos", path: "/products" },
+        { name: "Qualidade", path: "/quality" },
+        { name: "Empresa", path: "/enterprise" },
         { name: "Contato", path: "/contato" },
     ];
 
@@ -31,10 +33,11 @@ function Header() {
         <header
             className={`w-full h-16 fixed left-1/2 -translate-x-1/2 z-50
                 backdrop-blur-md container flex justify-evenly items-center px-4 rounded-2xl gap-8
-                transition-all duration-300 ease-in-out border top-[30px]
+                transition-all duration-300 ease-in-out border top-[44px]
                 ${scrolled
-                    ? "bg-white/50 max-w-4/5 md:max-w-[800px] border-neutral-200"
-                    : "bg-transparent max-w-4/5 border-transparent"
+                    ? "bg-white/50 max-w-4/5 md:max-w-[800px] border-blue/60"
+                    // : "bg-transparent max-w-4/5 border-transparent"
+                    : "bg-white/50 max-w-4/5 md:max-w-[800px] border-blue/60"
                 }
             `}
         >

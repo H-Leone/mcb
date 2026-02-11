@@ -70,7 +70,7 @@ export default function Input({
     };
 
     const baseClass =
-        "w-full border border-border text-sm rounded-lg text-main-text outline-none transition-colors " +
+        "w-full border border-border/65 text-sm rounded-lg text-main-text outline-none transition-colors " +
         getVariant() +
         " " +
         (className ?? "");

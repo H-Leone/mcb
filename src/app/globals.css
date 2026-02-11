@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F9F8F6;
+  --color-background: #D2E1EB;
   --color-white: #f8f8f8;
   --color-green: #016749;
   --color-blue: #00548e;
+  --color-border: #2d333d;
 
   --breakpoint-xs: 540px;
   --breakpoint-xxs: 400px;
@@ -12,4 +13,44 @@
 
 * {
   scroll-behavior: smooth;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-page {
+  animation: fadeInPage 0.4s ease-in-out;
+}
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
