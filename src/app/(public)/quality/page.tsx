@@ -1,171 +1,169 @@
+import React from 'react';
 import Button from "@/components/button";
-
 import { 
     Microscope, ShieldCheck, ClipboardCheck, 
     Award, FlaskConical, FileCheck, 
-    CheckCircle2, Factory, Fingerprint, Layers 
+    CheckCircle2, Factory, Fingerprint, 
+    Zap, Activity, Beaker
 } from "lucide-react";
 
-
 const QUALITY_STATS = [
-    { value: "0.01%", label: "Índice de Refugo" },
-    { value: "ISO 9001", label: "Certificação Global" },
-    { value: "24 Meses", label: "Rastreabilidade" },
-    { value: "100%", label: "Lotes Testados" },
+    { value: "0.01%", label: "Desvio de Refugo", detail: "Média Global" },
+    { value: "ΔE < 0.5", label: "Precisão de Cor", detail: "Delta E Control" },
+    { value: "ISO 9001", label: "Gestão", detail: "Certificada" },
+    { value: "100%", label: "Rastreabilidade", detail: "Por Lote" },
 ];
 
 const PROCESS_STEPS = [
     { 
-        id: 1, 
-        title: "Controle de Entrada (IQC)", 
-        desc: "Nenhuma matéria-prima entra na fábrica sem passar pelo espectrômetro. Analisamos pureza, densidade e viscosidade antes do descarregamento.",
-        icon: <Fingerprint size={32} className="text-emerald-500"/>
+        id: "IQC", 
+        title: "DNA de Matéria-Prima", 
+        desc: "Nenhuma substância entra sem o 'visto' do espectrômetro. Analisamos a pureza molecular para evitar contaminação em cascata.",
+        icon: <Fingerprint size={28} className="text-emerald-500"/>,
+        metric: "99.9% Pureza"
     },
     { 
-        id: 2, 
-        title: "Processo de Dispersão", 
-        desc: "Moagem controlada digitalmente para garantir a granulometria exata (Hegman). Isso define o brilho e a cobertura final da tinta.",
-        icon: <Factory size={32} className="text-emerald-500"/>
+        id: "HGM", 
+        title: "Moagem Nano-Controlada", 
+        desc: "A granulometria Hegman é monitorada via laser. Isso garante que a tinta flua sem entupir bicos e com cobertura total na primeira demão.",
+        icon: <Factory size={28} className="text-emerald-500"/>,
+        metric: "< 5 Microns"
     },
     { 
-        id: 3, 
-        title: "Correção Colorimétrica", 
-        desc: "Ajuste fino de cor com Delta E < 0.5. O que você aprova no laboratório é exatamente o que chega na sua linha de pintura.",
-        icon: <Microscope size={32} className="text-emerald-500"/>
+        id: "LAB", 
+        title: "Ajuste de Cor Digital", 
+        desc: "A cor que você aprova no tablet é a cor que sai da lata. Nosso Delta E é imperceptível ao olho humano, garantindo padronização total.",
+        icon: <Microscope size={28} className="text-emerald-500"/>,
+        metric: "ΔE < 0.5"
     },
     { 
-        id: 4, 
-        title: "Liberação Final (OQC)", 
-        desc: "Emissão automática de laudo técnico e arquivamento de contra-prova líquida e aplicada por 2 anos.",
-        icon: <ClipboardCheck size={32} className="text-emerald-500"/>
+        id: "OQC", 
+        title: "Certificação de Saída", 
+        desc: "Cada lote gera um QR Code único. Se você tiver um problema daqui a 2 anos, sabemos exatamente qual químico fez a mistura.",
+        icon: <ClipboardCheck size={28} className="text-emerald-500"/>,
+        metric: "Laudo Automático"
     },
 ];
 
-const CERTIFICATIONS = [
-    { name: "ISO 9001:2015", icon: <Award size={40} /> },
-    { name: "Norma ASTM B117", icon: <FlaskConical size={40} /> },
-    { name: "Compliance Ambiental", icon: <CheckCircle2 size={40} /> },
-    { name: "Laudos ABNT", icon: <FileCheck size={40} /> },
-];
-
-
-function QualityPage() {
+function QualityPageImproved() {
     return (
         <main className="w-full overflow-x-hidden text-slate-800 bg-white">
             
-            <section className="relative w-full pt-48 pb-32 flex flex-col items-center justify-center text-center bg-white pattern-grid-lg">
+            <section className="relative w-full pt-48 pb-32 flex flex-col items-center justify-center text-center bg-white">
                 <div className="container mx-auto px-6 z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-slate-200 bg-slate-50 text-slate-500 text-xs font-mono uppercase tracking-widest mb-6">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                        Engineering Dept.
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-100 bg-emerald-50/50 text-emerald-700 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Standard de Qualidade Marcobi
                     </div>
                     
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 mb-6 max-w-4xl mx-auto">
-                        A qualidade não é um ato,<br/> 
-                        <span className="text-slate-400">é um hábito.</span>
+                    <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-8 max-w-5xl mx-auto">
+                        Onde a química encontra <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-blue-600">a precisão absoluta.</span>
                     </h1>
                     
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
-                        Nos bastidores de cada lata de tinta existe um rigoroso processo de engenharia química, testes físicos e controle estatístico.
+                    <p className="text-xl text-slate-500 max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                        Não fabricamos apenas pigmentos. Projetamos superfícies resilientes através de rigor estatístico e controle molecular.
                     </p>
+
+                    <div className="flex justify-center gap-4">
+                        <div className="flex items-center gap-2 text-xs font-mono text-slate-400 border-r pr-4 border-slate-200">
+                            <Activity size={14}/> LIVE LAB DATA
+                        </div>
+                        <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+                            <ShieldCheck size={14}/> MIL-SPEC COMPLIANT
+                        </div>
+                    </div>
                 </div>
                 
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-40"></div>
             </section>
 
-            <section className="w-full bg-slate-900 text-white py-18">
+            <section className="w-full bg-slate-900 py-12">
                 <div className="container mx-auto px-6">
-                    <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 divide-x divide-slate-700/50">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {QUALITY_STATS.map((stat, i) => (
-                            <div key={i} className="flex-1 text-center min-w-[150px] px-4">
-                                <p className="text-4xl font-bold text-emerald-400 font-mono tracking-tight">{stat.value}</p>
-                                <p className="text-xs text-slate-400 uppercase tracking-widest mt-1">{stat.label}</p>
+                            <div key={i} className="relative group">
+                                <div className="text-4xl font-bold text-white font-mono tracking-tight mb-1">{stat.value}</div>
+                                <div className="text-[10px] text-emerald-400 uppercase tracking-widest font-bold">{stat.label}</div>
+                                <div className="text-[9px] text-slate-500 uppercase mt-2">{stat.detail}</div>
+                                <div className="absolute -left-4 top-0 h-full w-[1px] bg-slate-800 group-hover:bg-emerald-500 transition-colors"></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="py-32 container mx-auto px-6">
-                <div className="text-center mb-24">
-                    <h2 className="text-3xl font-bold text-slate-900">O Ciclo de Precisão</h2>
-                    <p className="text-slate-500 mt-2">Como garantimos a repetibilidade do lote.</p>
-                </div>
+            <section className="py-32 bg-slate-50">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-4xl mb-24">
+                        <h2 className="text-4xl font-bold text-slate-900 tracking-tight">O Ciclo de Tolerância Zero</h2>
+                        <p className="text-slate-500 mt-4 text-lg">Nossa linha de produção é um laboratório em escala industrial.</p>
+                    </div>
 
-                <div className="relative max-w-5xl mx-auto">
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2 hidden md:block"></div>
-
-                    <div className="space-y-24">
-                        {PROCESS_STEPS.map((step, index) => {
-                            const isEven = index % 2 === 0;
-                            return (
-                                <div key={step.id} className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 relative ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                                    
-                                    <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-4 border-emerald-500 rounded-full hidden md:block z-10"></div>
-
-                                    <div className="w-full md:w-1/2 flex justify-center">
-                                        <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 w-full max-w-md relative group hover:border-emerald-200 transition-colors">
-                                            <div className="absolute top-4 right-4 text-slate-200 text-6xl font-bold opacity-50 select-none">
-                                                0{step.id}
-                                            </div>
-                                            <div className="mb-4 bg-white w-14 h-14 rounded-xl flex items-center justify-center shadow-sm">
-                                                {step.icon}
-                                            </div>
-                                            <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                                        </div>
-                                    </div>
-
-                                    <div className="w-full md:w-1/2 md:text-left text-center">
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 md:hidden">{step.title}</h3>
-                                        <p className="text-lg text-slate-600 leading-relaxed">
-                                            {step.desc}
-                                        </p>
-                                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        {PROCESS_STEPS.map((step, index) => (
+                            <div key={index} className="bg-white border border-slate-200 p-8 rounded-3xl hover:border-emerald-500 transition-all group relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                                    {step.icon}
                                 </div>
-                            )
-                        })}
+                                
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-12 h-12 rounded-2xl bg-slate-900 text-emerald-400 flex items-center justify-center font-mono font-bold">
+                                        {step.id}
+                                    </div>
+                                    <div className="h-px flex-1 bg-slate-100"></div>
+                                    <span className="text-[10px] font-mono font-bold text-slate-400 px-3 py-1 bg-slate-50 rounded-full border border-slate-100">
+                                        {step.metric}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                                <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                                    {step.desc}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            <section className="relative w-full h-[500px] md:h-[600px] bg-fixed bg-center bg-cover my-0" style={{ backgroundImage: "url('/sobre-nos-landing.jpeg')" }}> {/* Usando style inline para simular bg-fixed com a imagem placeholder, idealmente use o componente Image com position absolute e fixed se preferir, mas bg-fixed css dá um efeito parallax legal aqui */}
-               <div className="absolute inset-0 bg-slate-900/80"></div>
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-                    <Microscope className="text-emerald-400 w-16 h-16 mb-6 opacity-80" />
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Laboratório de Ponta</h2>
-                    <p className="text-slate-300 max-w-2xl text-lg mb-8">
-                        Realizamos testes de Salt Spray, Câmara Úmida e Intemperismo Artificial (UV) internamente.
-                    </p>
-                    <div className="flex gap-4">
-                        <button className="px-8 py-3 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition-all">
-                            Conhecer Equipamentos
-                        </button>
-                    </div>
-               </div>
-            </section>
-
-            <section className="py-24 bg-slate-50 border-y border-slate-200">
-                <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-                    <div className="md:w-1/3 space-y-6">
-                        <div className="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center shadow-xl shadow-blue-600/20">
-                            <ShieldCheck size={32} />
-                        </div>
-                        <h2 className="text-3xl font-bold text-slate-900">Compliance & Normas</h2>
-                        <p className="text-slate-600 leading-relaxed">
-                            Não vendemos apenas tinta, entregamos segurança jurídica e técnica. Nossos processos seguem rigorosamente normas nacionais e internacionais.
-                        </p>
-                        <Button redirect="/certificacoes" >
-                            Visualizar Certificados (PDF)
-                        </Button>
-                    </div>
-
-                    <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {CERTIFICATIONS.map((cert, i) => (
-                            <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 flex items-center gap-4 hover:border-blue-400 transition-colors cursor-default">
-                                <div className="text-slate-400">{cert.icon}</div>
-                                <span className="font-semibold text-slate-700">{cert.name}</span>
+            <section className="py-24 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2rem] p-8 md:p-16 relative overflow-hidden shadow-2xl">
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                            <div className="max-w-xl">
+                                <div className="flex items-center gap-3 text-emerald-400 mb-6">
+                                    <Beaker size={24} />
+                                    <span className="text-sm font-bold uppercase tracking-widest">Acesso ao Laboratório</span>
+                                </div>
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Precisa de um ensaio técnico específico para seu projeto?</h2>
+                                <p className="text-slate-400 text-lg mb-8">
+                                    Disponibilizamos nossa estrutura de Salt Spray e UV para parceiros e projetos especiais.
+                                </p>
+                                <Button className="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-10 py-4">
+                                    Solicitar Laudo Técnico
+                                </Button>
                             </div>
-                        ))}
+                            
+                            <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
+                                {[
+                                    { icon: <Zap size={20}/>, text: "Aderência" },
+                                    { icon: <Activity size={20}/>, text: "Elasticidade" },
+                                    { icon: <ShieldCheck size={20}/>, text: "Anticorrosão" },
+                                    { icon: <FlaskConical size={20}/>, text: "Químicos" },
+                                ].map((item, i) => (
+                                    <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl flex flex-col items-center justify-center text-white gap-3">
+                                        <div className="text-emerald-400">{item.icon}</div>
+                                        <span className="text-xs font-bold uppercase tracking-tighter">{item.text}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 blur-[100px] rounded-full"></div>
                     </div>
                 </div>
             </section>
@@ -173,4 +171,4 @@ function QualityPage() {
     );
 }
 
-export default QualityPage;
+export default QualityPageImproved;
