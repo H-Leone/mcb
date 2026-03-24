@@ -70,8 +70,9 @@ async function ProductPage({ params }: ProductPageProps) {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                                <Button className="w-full sm:w-fit px-6 md:px-8 py-3 text-sm tracking-widest">
-                                    Solicitar Cotação
+                                <Button redirect={`https://wa.me/5511995427107?text=Olá! Gostaria de solicitar uma cotação para o produto: ${product.name}`}
+                                    className="w-full sm:w-fit px-6 md:px-8 py-3 text-sm tracking-widest">
+                                    Falar com especialista
                                 </Button>
 
                                 <Button

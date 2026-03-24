@@ -39,7 +39,7 @@ export default function HeroSection() {
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4 w-full sm:w-auto justify-center md:justify-start">
                         <Button className="w-fit mx-auto md:mx-0">
-                            <p className="mx-auto">Falar com especialista</p>
+                            <p className="mx-auto"><a href="https://wa.me/5511995427107">Falar com especialista</a></p>
                         </Button>
                         <Button variant="secondary" className="w-fit mx-auto md:mx-0">
                             Ver Catálogo
