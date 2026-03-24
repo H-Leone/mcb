@@ -116,7 +116,7 @@ function Header() {
                     <div className="mt-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 p-4 text-white">
                         <p className="text-sm text-white/70 mb-3">Precisa de uma solução técnica especializada?</p>
                         <Button>
-                            <a href="#fale-conosco">Fale Conosco</a>
+                            <a href="https://wa.me/5511995427107">Fale Conosco</a>
                         </Button>
                     </div>
                 </div>
