@@ -8,6 +8,7 @@ import {
     BarChart3,
     Globe2
 } from "lucide-react";
+import Link from "next/link";
 
 const TIMELINE_EVENTS = [
     {
@@ -194,9 +195,20 @@ export default function EmpresaPage() {
                         <p className="text-slate-400 text-base md:text-lg leading-relaxed">
                             Nossa fábrica é aberta para auditorias de qualidade e visitas técnicas. Conheça o rigor por trás da marca Marcobi.
                         </p>
-                        <button className="px-8 md:px-10 py-4 bg-white text-slate-900 rounded-full font-bold inline-flex items-center justify-center gap-3 hover:bg-blue-500 hover:text-white transition-all w-full sm:w-auto">
-                            Agendar Visita Técnica <ArrowRight size={20} />
-                        </button>
+                        <Link 
+                            href="https://wa.me/5511995427107?text=Olá! Gostaria de agendar uma visita técnica para avaliar um projeto industrial."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full sm:w-fit"
+                        >
+                            <button className="px-8 md:px-12 py-5 bg-white text-slate-950 rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs inline-flex items-center justify-center gap-4 hover:bg-blue-600 hover:text-white hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 w-full sm:w-auto border-2 border-transparent hover:border-blue-400 group">
+                                Agendar Visita Técnica 
+                                <ArrowRight 
+                                    size={18} 
+                                    className="group-hover:translate-x-2 transition-transform duration-300" 
+                                />
+                            </button>
+                        </Link>
                     </div>
 
                     <div className="lg:w-1/2 min-h-[280px] sm:min-h-[360px] lg:min-h-[400px] grayscale hover:grayscale-0 transition-all duration-700 opacity-60 hover:opacity-100">

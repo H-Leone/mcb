@@ -55,9 +55,16 @@ async function ProductPage({ params }: ProductPageProps) {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Button className="w-full sm:w-fit px-12 py-5 shadow-xl shadow-blue-200 text-sm font-bold tracking-widest uppercase">
-                                    Solicitar Cotação
+                            <Link 
+                                href={`https://wa.me/5511995427107?text=Olá! Gostaria de solicitar uma cotação para o produto: ${product.name}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full sm:w-fit"
+                            >
+                                <Button className="w-full px-12 py-5 shadow-xl shadow-blue-200 text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] active:scale-95">
+                                    Falar com especialista
                                 </Button>
+                            </Link>
                                 <Button variant="transparent" className="w-full sm:w-fit px-10 py-5 border-slate-200 text-sm font-bold flex items-center justify-center gap-2">
                                     <FileText size={18} /> TDS / Ficha Técnica
                                 </Button>
