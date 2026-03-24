@@ -3,11 +3,11 @@ import Button from "@/components/button";
 import HeroSection from "@/components/hero-section";
 import ProductCarousel from "@/components/product-carousel";
 import SegmentsSection from "@/components/segments-section";
-import { 
-    CalendarPlus, CheckCircle2, ArrowRight,
-    Factory, ShieldCheck, Microscope, Quote
+import {
+    CalendarPlus, Microscope, Factory
 } from "lucide-react";
 import SobreNos from "../../../public/sobre-nos-landing.jpeg";
+import TestimonialSection from "@/components/testimonial-section";
 
 function HomePage() {
     const stats = [
@@ -16,29 +16,17 @@ function HomePage() {
         { title: "10+", subtitle: "Setores B2B", icon: <Factory size={24} />, desc: "Presença nacional." },
     ];
 
-    const testimonials = [
-        {
-            name: "Fernanda Lopes",
-            company: "Indústria Plasteel",
-            avatar: "/testimonials/fernanda.jpg",
-            text: "Trabalhar com a Marcobi facilita nossa rotina. A qualidade e o suporte técnico fazem toda a diferença."
-        },
-        {
-            name: "Rafael Monteiro",
-            company: "TecnoParts",
-            avatar: "/testimonials/rafael.jpg",
-            text: "A performance dos revestimentos e a flexibilidade técnica são pontos fortes da empresa."
-        }
-    ];
-
     return (
         <main className="w-full bg-white overflow-x-hidden text-slate-900">
             <HeroSection />
-
-            <section className="relative z-20 -mt-16 container mx-auto px-6">
+{/* 
+            <section className="relative z-20 -mt-16 md:-mt-24 container mx-auto px-4 sm:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 bg-white">
                     {stats.map((s, i) => (
-                        <div key={i} className={`p-8 flex flex-col items-center text-center space-y-2 ${i !== 2 ? 'border-b md:border-b-0 md:border-r border-slate-50' : ''}`}>
+                        <div
+                            key={i}
+                            className={`p-6 sm:p-8 flex flex-col items-center text-center space-y-2 ${i !== 2 ? "border-b md:border-b-0 md:border-r border-slate-50" : ""}`}
+                        >
                             <div className="text-blue-600 mb-1">{s.icon}</div>
                             <h3 className="text-3xl font-black text-slate-900 tracking-tighter">{s.title}</h3>
                             <p className="font-bold text-slate-500 uppercase text-[10px] tracking-[0.2em]">{s.subtitle}</p>
@@ -46,115 +34,104 @@ function HomePage() {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section> */}
 
-            <section className="py-24 container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-stretch gap-16">
-                    <div className="lg:w-1/2 relative min-h-[400px]">
-                        <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full blur-2xl"></div>
-                        <div className="relative h-full w-full rounded-[2rem] overflow-hidden shadow-xl">
-                            <Image
-                                src={SobreNos}
-                                alt="Engenharia Marcobi"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover transition-transform duration-700 hover:scale-105"
-                                priority
-                            />
-                        </div>
-                        <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg border border-slate-50 hidden md:block max-w-[180px]">
-                            <ShieldCheck className="text-blue-600 w-8 h-8 mb-2" />
-                            <p className="text-xs font-bold text-slate-800">Qualidade certificada em cada lote.</p>
-                        </div>
-                    </div>
-
-                    <div className="lg:w-1/2 flex flex-col justify-center space-y-6">
-                        <div className="space-y-3">
-                            <span className="text-blue-600 font-mono text-xs font-bold tracking-[0.3em] uppercase">Excelência Química</span>
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
-                                De revestimentos simples a <span className="text-blue-600">soluções de alta engenharia.</span>
-                            </h2>
-                        </div>
-                        
-                        <p className="text-base text-slate-500 leading-relaxed">
-                            A Marcobi entrega proteção galvânica e durabilidade para indústrias que não podem parar. Nosso laboratório customiza fórmulas para o seu processo produtivo com precisão técnica.
+            <section className="container mx-auto px-4 sm:px-6 py-16 md:py-40">
+                <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-12">
+                    <div className="w-full md:w-1/2 space-y-6 md:space-y-8 text-center md:text-left">
+                        <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Quem somos</span>
+                        <h2 className="text-3xl md:text-4xl font-bold leading-tight pt-2 md:pt-3">
+                            Soluções técnicas em tintas e vernizes industriais
+                        </h2>
+                        <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                            Desenvolvemos soluções personalizadas para diferentes aplicações e segmentos, com foco inegociável em desempenho, qualidade e confiabilidade.
                         </p>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            {['Atendimento Consultivo', 'Logística Ágil', 'Repetibilidade Técnica'].map((item) => (
-                                <div key={item} className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                                    <CheckCircle2 size={16} className="text-blue-500 shrink-0" /> {item}
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="pt-4">
-                            <Button redirect="/enterprise" className="px-8 py-3 text-sm">
+                        <div className="pt-2 md:pt-4 flex justify-center md:justify-start">
+                            <Button redirect="/enterprise">
                                 Nossa história
                             </Button>
                         </div>
                     </div>
+
+                    <div className="w-full md:w-5/12 relative">
+                        <div className="absolute -inset-3 md:-inset-4 bg-blue-100 rounded-xl -z-10 rotate-3"></div>
+                        <Image
+                            src={SobreNos}
+                            alt="Fábrica de tintas e vernizes"
+                            width={500}
+                            height={400}
+                            className="rounded-xl shadow-lg w-11/12 object-cover h-[240px] sm:h-[320px] md:h-[350px] mx-auto"
+                        />
+                    </div>
                 </div>
             </section>
 
-            <section className="py-20 bg-slate-50">
-                <div className="container mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                    <div className="max-w-xl">
-                        <h2 className="text-3xl font-bold text-slate-900">Destaques do Portfólio</h2>
-                        <p className="text-slate-500 mt-2">Tecnologia em polímeros para máxima proteção.</p>
-                    </div>
-                    <Button redirect="/products" variant="transparent" className="group text-sm">
-                        Ver catálogo <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+            <section className="py-12 space-y-12 container mx-auto px-4 sm:px-6">
+                <div className="text-center max-w-2xl mx-auto space-y-4">
+                    <h2 className="text-3xl font-bold">Linha de Produtos</h2>
+                    <p className="text-gray-600 text-base sm:text-lg">
+                        Para cada necessidade industrial, uma solução técnica específica.
+                    </p>
                 </div>
+
                 <ProductCarousel />
+
+                <Button className="mx-auto -mb-10" redirect="/products">
+                    Ver catálogo 
+                </Button>
             </section>
 
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-2xl font-bold text-center mb-12 text-slate-400 uppercase tracking-widest text-xs">Confiam na nossa tecnologia</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[1, 2, 3, 4].map(item => (
-                            <div key={item} className="h-24 bg-slate-50 rounded-2xl flex items-center justify-center grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all border border-transparent hover:border-slate-100">
-                                <span className="text-[10px] font-bold text-slate-400">LOGO {item}</span>
-                            </div>
+            <section className="relative overflow-hidden bg-blue/30 w-full mx-auto my-12 py-24 md:py-50">
+                <svg
+                    className="absolute top-0 left-0 w-full"
+                    viewBox="0 0 1440 140"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        fill="#f8f8f8"
+                        d="M0,90 C240,130 480,50 720,50 960,50 1200,130 1440,90 L1440,0 L0,0 Z"
+                    />
+                </svg>
+
+                <svg
+                    className="absolute -bottom-1 left-0 w-full"
+                    viewBox="0 0 1440 160"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        fill="#f8f8f8"
+                        d="M0,110 
+                            C180,140 360,80 540,95 
+                            C720,110 900,150 1080,120 
+                            C1260,95 1350,70 1440,85 
+                            L1440,160 
+                            L0,160 Z"
+                    />
+                </svg>
+
+                <div className="relative z-10 px-4 sm:px-6 md:px-20">
+                    <h2 className="text-3xl font-bold text-center">Nossos Parceiros</h2>
+
+                    <p className="w-full md:w-3/5 text-sm sm:text-base md:text-md font-medium text-center mx-auto mt-6 mb-10 md:mb-16">
+                        Atendemos as principais empresas que concentram 47,8% do mercado brasileiro de cosméticos, com um faturamento de cerca de R$34,7 bilhões ao ano.
+                    </p>
+
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                        {[1, 2, 3].map((item) => (
+                            <li
+                                key={item}
+                                className="bg-white rounded-xl min-h-[180px] sm:h-56 md:h-72 flex items-center justify-center shadow-sm"
+                            >
+                                Parceiro {item}
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </section>
 
             <SegmentsSection />
 
-            <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="text-center mb-12">
-                        <span className="text-blue-400 font-mono text-[10px] font-bold tracking-[0.3em] uppercase">Feedback</span>
-                        <h2 className="text-3xl font-bold mt-2">O que dizem nossos clientes</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {testimonials.map((t, index) => (
-                            <div key={index} className="bg-slate-800/50 border border-slate-700 p-8 rounded-[2rem] flex flex-col justify-between hover:bg-slate-800 transition-colors">
-                                <Quote className="text-blue-500 w-8 h-8 opacity-30 mb-4" />
-                                <p className="text-base text-slate-200 leading-relaxed italic mb-6">
-                                    "{t.text}"
-                                </p>
-                                <div className="flex items-center gap-4 pt-4 border-t border-slate-700/50">
-                                    <div className="w-10 h-10 rounded-full bg-slate-700 relative overflow-hidden">
-                                        <Image src={t.avatar} alt={t.name} fill className="object-cover" />
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-sm">{t.name}</p>
-                                        <p className="text-[10px] text-blue-400 font-medium uppercase tracking-wider">{t.company}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <TestimonialSection />
         </main>
     );
 }

@@ -55,7 +55,7 @@ function Button({
             disabled={disabled}
             onClick={handleClick}
             type={type ?? "button"}
-            className={`flex items-center gap-2 text-sm px-4 py-2 rounded-md whitespace-nowrap cursor-pointer transition duration-300 select-none disabled:cursor-not-allowed ${getVariant()} ${className}`}
+            className={`${className} flex items-center gap-2 text-sm px-4 py-2 rounded-md whitespace-nowrap cursor-pointer transition duration-300 select-none disabled:cursor-not-allowed ${getVariant()}`}
         >
             {children}
         </button>
