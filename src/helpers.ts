@@ -1,5 +1,5 @@
 export const categories = [
-    { name: "Todas as categorias", tag: null },
+    { name: "Todos os produtos", tag: null },
     { name: "Acrílico", tag: "acrilico" },
     { name: "Alquídico / Sintético", tag: "alquidico-sintetico" },
     { name: "Alta Temperatura", tag: "alta-temperatura" },
