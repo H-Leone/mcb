@@ -57,7 +57,7 @@ function Header() {
             </nav>
 
             <Button>
-                <a href="#fale-conosco">Fale Conosco</a>
+                <a href="https://wa.me/5511995427107">Fale Conosco</a>
             </Button>
         </header>
     );
