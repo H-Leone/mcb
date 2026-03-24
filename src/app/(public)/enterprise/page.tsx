@@ -1,257 +1,216 @@
 import Image from "next/image";
 import SobreNos from "../../../../public/sobre-nos-landing.jpeg";
-
-import { 
-    Award, MapPin, Target, History, 
-    Building2, Users, ArrowRight 
+import {
+    Target,
+    Users,
+    ArrowRight,
+    ShieldCheck,
+    BarChart3,
+    Globe2
 } from "lucide-react";
-
 
 const TIMELINE_EVENTS = [
     {
         year: "1991",
-        title: "O Início",
-        description: "Fundação da Marcobi com foco inicial em tintas imobiliárias e migração gradual para a linha industrial.",
+        title: "A Gênese",
+        description: "Fundação com foco em tintas imobiliárias, identificando rapidamente a demanda por alta performance industrial.",
     },
     {
         year: "2000",
-        title: "Expansão Industrial",
-        description: "Inauguração da nova planta fabril e ampliação do portfólio para atender o setor metal-mecânico.",
+        title: "Salto Fabril",
+        description: "Inauguração da planta atual. Especialização no setor metal-mecânico e revestimentos anticorrosivos.",
     },
     {
         year: "2005",
-        title: "Certificação ISO 9001",
-        description: "Implementação do Sistema de Gestão da Qualidade, um marco na padronização dos nossos processos.",
+        title: "Padrão Internacional",
+        description: "Conquista da ISO 9001, consolidando a Marcobi como fornecedora homologada para multinacionais.",
     },
     {
         year: "2018",
-        title: "Nova Era Tecnológica",
-        description: "Investimento em laboratório próprio de colorimetria e modernização da linha de produção automatizada.",
+        title: "Indústria 4.0",
+        description: "Automação da linha de dispersão e laboratório de colorimetria digital Delta-E.",
     },
 ];
-
-const CORPORATE_VALUES = [
-    {
-        title: "Missão",
-        icon: <Target className="w-8 h-8 text-blue-500" />,
-        desc: "Desenvolver soluções em revestimentos que agreguem valor, proteção e durabilidade aos produtos de nossos clientes."
-    },
-    {
-        title: "Visão",
-        icon: <History className="w-8 h-8 text-blue-500" />,
-        desc: "Ser referência nacional em tintas industriais, reconhecida pela agilidade técnica e excelência no atendimento."
-    },
-    {
-        title: "Valores",
-        icon: <Users className="w-8 h-8 text-blue-500" />,
-        desc: "Ética nas relações, compromisso com a qualidade, inovação constante e responsabilidade socioambiental."
-    },
-];
-
 
 export default function EmpresaPage() {
-  return (
-    <main className="w-full bg-slate-50 text-slate-800">
-      
-      <section className="relative pt-52 pb-34 flex items-center justify-center overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 z-0">
-            <Image
-                src={SobreNos}
-                alt="Fachada Indústria Marcobi"
-                fill
-                priority
-                className="object-cover opacity-30"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 text-center space-y-6">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-slate-600 bg-slate-800/50 backdrop-blur-md text-slate-300 text-xs font-medium tracking-widest uppercase mb-4">
-            Desde 1991
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-4xl mx-auto">
-            Solidez construída com <br />
-            <span className="text-blue-500">tecnologia e confiança.</span>
-          </h1>
-
-          <p className="w-2/4 text-md text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Mais de três décadas desenvolvendo tintas e vernizes que protegem e valorizam a indústria brasileira.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-24 container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-            
-            <div className="lg:w-1/2 space-y-8">
-                <div className="space-y-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">A Indústria</h2>
-                    <div className="w-20 h-1.5 bg-blue-600 rounded-full"></div>
-                </div>
-
-                <p className="text-lg text-slate-600 leading-relaxed text-justify">
-                    A Marcobi não é apenas uma fabricante de tintas; somos uma parceira estratégica para indústrias que buscam performance. Fundada em 1991, nascemos com o propósito de suprir uma lacuna no mercado: o atendimento técnico personalizado.
-                </p>
-
-                <p className="text-lg text-slate-600 leading-relaxed text-justify">
-                    Com foco em inovação, investimos continuamente em nossa planta fabril e na capacitação de nossos químicos. Nossa estrutura permite atender desde pequenos lotes customizados até grandes volumes para linhas de produção contínua, sempre com a mesma garantia de repetibilidade.
-                </p>
-
-                <div className="grid grid-cols-2 gap-6 pt-4">
-                    <div className="p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
-                        <p className="text-3xl font-bold text-blue-600">+30</p>
-                        <p className="text-sm text-slate-500">Anos de História</p>
-                    </div>
-                    <div className="p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
-                        <p className="text-3xl font-bold text-blue-600">100%</p>
-                        <p className="text-sm text-slate-500">Capital Nacional</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="lg:w-1/2 relative pl-8 pt-8">
-                <div className="absolute top-0 left-0 w-2/3 h-2/3 bg-blue-100 rounded-3xl -z-10"></div>
-                <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+    return (
+        <main className="w-full bg-white text-slate-900 overflow-x-hidden">
+            <section className="relative min-h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-slate-950">
+                <div className="absolute inset-0 z-0">
                     <Image
                         src={SobreNos}
-                        alt="Estrutura industrial interna"
+                        alt="Fachada Indústria Marcobi"
                         fill
-                        className="object-cover"
+                        priority
+                        className="object-cover object-center opacity-40 scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/80 to-slate-950" />
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-slate-900 text-white p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
-                    <Building2 className="w-8 h-8 mb-3 text-blue-400" />
-                    <p className="font-medium text-sm">"Nosso maior patrimônio é a confiança que conquistamos a cada entrega."</p>
-                </div>
-            </div>
-        </div>
-      </section>
 
-      <section className="py-24 bg-white border-y border-slate-100">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Nossa Trajetória</h2>
-                <p className="text-slate-500 mt-4">Uma história marcada pela evolução constante.</p>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-                <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2 md:block"></div>
-
-                <div className="space-y-12">
-                    {TIMELINE_EVENTS.map((item, index) => {
-                        const isEven = index % 2 === 0;
-                        return (
-                            <div key={index} className={`flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 relative ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                                
-                                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 bg-white border-4 border-blue-600 rounded-full z-10 shadow-md"></div>
-
-                                <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
-                                    <span className="text-5xl font-bold text-slate-100 absolute -top-4 md:-top-6 z-0 pointer-events-none select-none opacity-80" aria-hidden="true">
-                                        {item.year}
-                                    </span>
-                                    <div className="relative z-10">
-                                        <span className="text-blue-600 font-bold text-lg block mb-1">{item.year}</span>
-                                        <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                                        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                </div>
-                                
-                                <div className="w-full md:w-1/2 hidden md:block"></div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-          </div>
-      </section>
-
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="container mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold">Identidade Corporativa</h2>
-                <p className="text-slate-400 mt-4">
-                    Princípios que guiam nossas decisões e moldam nosso futuro.
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {CORPORATE_VALUES.map((item) => (
-                    <div key={item.title} className="bg-slate-800/50 border border-slate-700 p-8 rounded-2xl hover:bg-slate-800 transition-colors group">
-                        <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-blue-900/20">
-                            {item.icon}
+                <div className="relative z-10 container mx-auto px-4 sm:px-6">
+                    <div className="flex flex-col items-center text-center space-y-6 md:space-y-8">
+                        <div className="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-md text-blue-400 text-[10px] sm:text-xs font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase max-w-full">
+                            <Globe2 size={14} />
+                            <span>Tradição em Movimento</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-4 text-white group-hover:text-blue-400 transition-colors">{item.title}</h3>
-                        <p className="text-slate-400 leading-relaxed text-sm">
-                            {item.desc}
+
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-[1.1] max-w-5xl">
+                            Protegendo o <span className="text-blue-500">futuro</span> da indústria desde 1991.
+                        </h1>
+
+                        <p className="text-base md:text-xl text-slate-400 max-w-2xl font-light px-2 sm:px-0">
+                            Combinamos química de precisão com três décadas de experiência para entregar o que há de mais avançado em revestimentos industriais.
                         </p>
                     </div>
-                ))}
-            </div>
-        </div>
-      </section>
+                </div>
 
-      <section className="py-24 container mx-auto px-6">
-        <div className="bg-white rounded-3xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-                
-                <div className="p-10 md:p-16 space-y-8 flex flex-col justify-center">
-                    <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 text-blue-600 font-semibold uppercase text-sm tracking-wider">
-                            <MapPin className="w-4 h-4" /> Nossa Planta
+                <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+                    <div className="w-px h-10 md:h-12 bg-gradient-to-b from-transparent to-white"></div>
+                </div>
+            </section>
+
+            <section className="py-20 md:py-32 container mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
+                    <div className="lg:col-span-6 space-y-8 md:space-y-10 text-center lg:text-left">
+                        <div className="space-y-4">
+                            <span className="text-blue-600 font-mono text-xs md:text-sm font-bold tracking-widest">
+                                01. QUEM SOMOS
+                            </span>
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+                                Mais que fabricantes,
+                                <br />
+                                <span className="text-slate-400">somos estrategistas térmicos e químicos.</span>
+                            </h2>
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900">Capacidade produtiva estratégica</h2>
+
+                        <div className="space-y-5 md:space-y-6 text-base md:text-lg text-slate-600 font-light">
+                            <p>
+                                A Marcobi nasceu para suprir uma lacuna crítica: a falta de <span className="text-slate-900 font-medium">inteligência técnica</span> no fornecimento de tintas. Não entregamos apenas latas; entregamos a garantia de que sua linha de produção não pare por falhas de revestimento.
+                            </p>
+                            <p>
+                                Nossa sede própria abriga um dos laboratórios mais modernos do país, onde cada cor é tratada como um projeto de engenharia único.
+                            </p>
+                        </div>
+
+                        <div className="flex items-center justify-center lg:justify-start gap-6 md:gap-8 border-t border-slate-100 pt-8 md:pt-10">
+                            <div>
+                                <p className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tighter">30+</p>
+                                <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400 font-bold mt-1">
+                                    Anos de Mercado
+                                </p>
+                            </div>
+                            <div className="w-px h-10 md:h-12 bg-slate-100"></div>
+                            <div>
+                                <p className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tighter">15k+</p>
+                                <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400 font-bold mt-1">
+                                    Fórmulas Desenvolvidas
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <p className="text-slate-600 leading-relaxed">
-                        Localizada estrategicamente, nossa fábrica conta com reatores modernos e tanques de dispersão de alta capacidade. Dispomos de frota própria para entregas regionais e parcerias logísticas para atendimento nacional.
-                    </p>
-
-                    <div className="space-y-4 pt-4">
-                         <div className="flex items-start gap-4">
-                            <div className="mt-1 bg-blue-50 p-2 rounded-full text-blue-600">
-                                <Building2 size={20} />
-                            </div>
-                            <div>
-                                <p className="font-bold text-slate-900">Sede Própria</p>
-                                <p className="text-sm text-slate-500">Área industrial projetada para expansão.</p>
-                            </div>
+                    <div className="lg:col-span-6 relative">
+                        <div className="relative aspect-[4/5] rounded-[1.75rem] md:rounded-[2rem] overflow-hidden shadow-2xl">
+                            <Image
+                                src={SobreNos}
+                                alt="Engenheiro Marcobi"
+                                fill
+                                className="object-cover object-center"
+                            />
                         </div>
-                        <div className="flex items-start gap-4">
-                            <div className="mt-1 bg-blue-50 p-2 rounded-full text-blue-600">
-                                <Award size={20} />
-                            </div>
-                            <div>
-                                <p className="font-bold text-slate-900">Segurança Ambiental</p>
-                                <p className="text-sm text-slate-500">Estação de tratamento de efluentes e licenciamento ambiental em dia.</p>
-                            </div>
+                        <div className="relative md:absolute mt-4 md:mt-0 md:-bottom-10 md:-right-6 lg:right-10 bg-blue-600 text-white p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl max-w-full md:max-w-[280px] mx-auto md:mx-0">
+                            <BarChart3 className="w-8 h-8 md:w-10 md:h-10 mb-4 md:mb-6 text-blue-200" />
+                            <p className="text-base md:text-lg font-medium leading-snug">
+                                "Evoluímos para que sua estrutura seja eterna."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-20 md:py-32 bg-slate-50 overflow-hidden">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-20 gap-6 text-center md:text-left">
+                        <div className="max-w-xl">
+                            <span className="text-blue-600 font-mono text-xs md:text-sm font-bold tracking-widest">
+                                02. LEGADO
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-4">
+                                Nossa linha do tempo não é feita de anos, mas de marcos tecnológicos.
+                            </h2>
                         </div>
                     </div>
 
-                    <div className="pt-6">
-                        <button className="text-blue-600 font-bold flex items-center gap-2 hover:gap-4 transition-all group">
-                            Agendar uma visita <ArrowRight className="w-5 h-5" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        {TIMELINE_EVENTS.map((item, index) => (
+                            <div
+                                key={index}
+                                className="bg-white p-6 md:p-8 border border-slate-200 rounded-3xl group hover:bg-slate-900 transition-all duration-500 text-center sm:text-left"
+                            >
+                                <span className="text-4xl font-black text-slate-100 group-hover:text-white/10 transition-colors">
+                                    {item.year}
+                                </span>
+                                <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-400 mt-4 mb-3 transition-colors">
+                                    {item.title}
+                                </h3>
+                                <p className="text-slate-500 group-hover:text-slate-400 text-sm leading-relaxed transition-colors">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-20 md:py-32 bg-white">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 text-center md:text-left">
+                        {[
+                            { label: "Missão", title: "Excelência em Proteção", desc: "Criar revestimentos que desafiam o tempo e a corrosão.", icon: <ShieldCheck /> },
+                            { label: "Visão", title: "Liderança Técnica", desc: "Ser o benchmark em soluções químicas para o setor industrial.", icon: <Target /> },
+                            { label: "Valores", title: "Ética Molecular", desc: "Integridade absoluta em cada grama de pigmento produzido.", icon: <Users /> },
+                        ].map((item, i) => (
+                            <div key={i} className="space-y-6 flex flex-col items-center md:items-start">
+                                <div className="w-12 h-12 text-blue-600">{item.icon}</div>
+                                <div className="space-y-2">
+                                    <span className="text-xs font-bold text-blue-500 uppercase tracking-[0.2em]">
+                                        {item.label}
+                                    </span>
+                                    <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                                </div>
+                                <p className="text-slate-500 leading-relaxed font-light">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="pb-20 md:pb-32 container mx-auto px-4 sm:px-6">
+                <div className="bg-slate-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden flex flex-col lg:flex-row">
+                    <div className="p-6 sm:p-8 md:p-12 lg:p-20 lg:w-1/2 space-y-6 md:space-y-8 text-center lg:text-left">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">
+                            Infraestrutura que inspira confiança.
+                        </h2>
+                        <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+                            Nossa fábrica é aberta para auditorias de qualidade e visitas técnicas. Conheça o rigor por trás da marca Marcobi.
+                        </p>
+                        <button className="px-8 md:px-10 py-4 bg-white text-slate-900 rounded-full font-bold inline-flex items-center justify-center gap-3 hover:bg-blue-500 hover:text-white transition-all w-full sm:w-auto">
+                            Agendar Visita Técnica <ArrowRight size={20} />
                         </button>
                     </div>
-                </div>
 
-                <div className="h-[400px] lg:h-auto w-full bg-slate-200 relative">
-                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197577820128!2d-46.65868848502223!3d-23.561348584682944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1689620000000!5m2!1spt-BR!2sbr" 
-                        width="100%" 
-                        height="100%" 
-                        style={{ border: 0 }} 
-                        allowFullScreen 
-                        loading="lazy" 
-                        referrerPolicy="no-referrer-when-downgrade"
-                        className="grayscale hover:grayscale-0 transition-all duration-500"
-                    ></iframe>
+                    <div className="lg:w-1/2 min-h-[280px] sm:min-h-[360px] lg:min-h-[400px] grayscale hover:grayscale-0 transition-all duration-700 opacity-60 hover:opacity-100">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=..."
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                        ></iframe>
+                    </div>
                 </div>
-            </div>
-        </div>
-      </section>
-    </main>
-  )
+            </section>
+        </main>
+    );
 }
