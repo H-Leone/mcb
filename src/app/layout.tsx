@@ -22,13 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <IsAbleToShow>
-        <body
-          className={`${poppins.className} antialiased bg-background`}
-        >
-          {children}
-        </body>
-      </IsAbleToShow>
+      <body
+        className={`${poppins.className} antialiased bg-background`}
+      >
+        <IsAbleToShow>
+          <div>
+            {children}
+          </div>
+        </IsAbleToShow>
+      </body>
     </html>
   );
 }
