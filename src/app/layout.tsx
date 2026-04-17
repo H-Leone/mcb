@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import IsAbleToShow from "@/components/is-able-to-show";
 
 const poppins = Poppins({
   variable: "--poppins-font",
@@ -21,11 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${poppins.className} antialiased bg-background`}
-      >
-        {children}
-      </body>
+      <IsAbleToShow>
+        <body
+          className={`${poppins.className} antialiased bg-background`}
+        >
+          {children}
+        </body>
+      </IsAbleToShow>
     </html>
   );
 }
