@@ -9,6 +9,12 @@ interface ProductPageProps {
     params: Promise<{ id: string; }>;
 }
 
+export async function generateStaticParams() {
+    return products.map((product) => ({
+        id: product.id,
+    }));
+}
+
 async function ProductPage({ params }: ProductPageProps) {
     const { id } = await params;
     const product = products.find(p => p.id === id);
@@ -38,7 +44,7 @@ async function ProductPage({ params }: ProductPageProps) {
                     <div className="grid grid-cols-1 lg:grid-cols-2 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-slate-200 bg-white">
                         <div className="relative p-5 sm:p-8 md:p-14 lg:p-16 flex items-center justify-center min-h-[320px] sm:min-h-[420px] bg-gradient-to-br from-slate-50 via-white to-slate-100">
                             <div className="absolute top-5 left-5 md:top-8 md:left-8 max-w-[calc(100%-40px)]">
-                                <span className="px-3 py-1.5 bg-blue text-white rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 w-fit shadow-sm">
+                                <span className="px-3 py-1.5 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 w-fit shadow-sm">
                                     <Palette size={12} />
                                     {category?.name}
                                 </span>
@@ -50,6 +56,7 @@ async function ProductPage({ params }: ProductPageProps) {
                                     alt={product.name}
                                     fill
                                     className="object-contain p-2 md:p-4"
+                                    unoptimized // Adicionado para garantir compatibilidade com export estático
                                 />
                             </div>
                         </div>
@@ -65,7 +72,7 @@ async function ProductPage({ params }: ProductPageProps) {
                                 </h1>
                             </div>
 
-                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed font-light italic max-w-2xl mx-auto lg:mx-0  border-l-0 lg:border-l-4 border-blue-600 pl-4">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed font-light italic max-w-2xl mx-auto lg:mx-0 border-l-0 lg:border-l-4 border-blue-600 pl-4">
                                 {product.description}
                             </p>
 
@@ -124,7 +131,7 @@ async function ProductPage({ params }: ProductPageProps) {
                             </div>
 
                             <div className="mt-2 md:mt-auto p-4 md:p-5 bg-white/5 rounded-2xl border border-white/10 flex items-start gap-3 md:gap-4">
-                                <Info size={18} className="text-blue-400 shrink-0 mt-0.5" />
+                                <span className="text-blue-400 shrink-0 mt-0.5"><Info size={18} /></span>
                                 <p className="text-[11px] md:text-xs text-slate-300 leading-relaxed">
                                     Consulte nosso departamento técnico para validação de processos e substratos específicos.
                                 </p>

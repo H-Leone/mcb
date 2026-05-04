@@ -7,7 +7,7 @@ interface IsAbleToShowProps {
 function IsAbleToShow({ children }: IsAbleToShowProps) {
     const isAbleToShow = Boolean(process.env.IS_ABLE_TO_SHOW);
 
-    if (!isAbleToShow) {
+    if (isAbleToShow) {
         return (
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 text-center">
                 <p>Estamos em ajuste! Favor entrar em contato<br />para mais informações</p>
