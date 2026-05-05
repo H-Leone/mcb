@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,66390,e=>{e.v("/_next/static/media/carrossel-1.94cc8ec1.jpeg")},25159,e=>{e.v("/_next/static/media/carrossel-2.dd0abe26.jpeg")},44072,e=>{e.v("/_next/static/media/carrossel-3.9ebfd5ce.png")}]);

@@ -8,73 +8,76 @@ import {
 import Link from 'next/link';
 
 const QUALITY_STATS = [
-    { value: "0.01%", label: "Desvio de Refugo", detail: "Média Global" },
-    { value: "ΔE < 0.5", label: "Precisão de Cor", detail: "Delta E Control" },
-    { value: "ISO 9001", label: "Gestão", detail: "Certificada" },
-    { value: "100%", label: "Rastreabilidade", detail: "Por Lote" },
+    { value: "Baixo Índice", label: "Controle de Refugo", detail: "Processo Monitorado" },
+    { value: "Alta Precisão", label: "Padronização de Cor", detail: "Controle Laboratorial" },
+    { value: "ISO 9001", label: "Gestão da Qualidade", detail: "Processos Padronizados" },
+    { value: "100%", label: "Rastreabilidade", detail: "Controle por Lote" },
 ];
 
 const PROCESS_STEPS = [
     {
         id: "IQC",
-        title: "DNA de Matéria-Prima",
-        desc: "Nenhuma substância entra sem o 'visto' do espectrômetro. Analisamos a pureza molecular para evitar contaminação em cascata.",
+        title: "Controle de Matéria-Prima",
+        desc: "Todas as matérias-primas passam por análise técnica antes da liberação para produção, garantindo consistência e desempenho do produto final.",
         icon: <Fingerprint size={28} className="text-emerald-500" />,
-        metric: "99.9% Pureza"
+        metric: "Controle de Entrada"
     },
     {
-        id: "HGM",
-        title: "Moagem Nano-Controlada",
-        desc: "A granulometria Hegman é monitorada via laser. Isso garante que a tinta flua sem entupir bicos e com cobertura total na primeira demão.",
+        id: "PRD",
+        title: "Processo Produtivo Controlado",
+        desc: "A produção segue parâmetros técnicos definidos, com controle de viscosidade, dispersão e homogeneização para garantir qualidade constante.",
         icon: <Factory size={28} className="text-emerald-500" />,
-        metric: "< 5 Microns"
+        metric: "Parâmetros Controlados"
     },
     {
         id: "LAB",
-        title: "Ajuste de Cor Digital",
-        desc: "A cor que você aprova no tablet é a cor que sai da lata. Nosso Delta E é imperceptível ao olho humano, garantindo padronização total.",
+        title: "Análise Laboratorial",
+        desc: "Os produtos são avaliados em laboratório quanto a cor, aderência e desempenho, assegurando conformidade com especificações técnicas.",
         icon: <Microscope size={28} className="text-emerald-500" />,
-        metric: "ΔE < 0.5"
+        metric: "Ensaios Técnicos"
     },
     {
         id: "OQC",
-        title: "Certificação de Saída",
-        desc: "Cada lote gera um QR Code único. Se você tiver um problema daqui a 2 anos, sabemos exatamente qual químico fez a mistura.",
+        title: "Liberação de Lote",
+        desc: "Cada lote é inspecionado antes da expedição, garantindo rastreabilidade e confiabilidade no fornecimento.",
         icon: <ClipboardCheck size={28} className="text-emerald-500" />,
-        metric: "Laudo Automático"
+        metric: "Controle Final"
     },
 ];
 
 function QualityPageImproved() {
     return (
         <main className="w-full overflow-x-hidden text-slate-800 bg-white">
+            
+            {/* HERO */}
             <section className="relative w-full pt-32 md:pt-48 pb-20 md:pb-32 flex flex-col items-center justify-center text-center bg-white">
                 <div className="container mx-auto px-4 sm:px-6 z-10">
+                    
                     <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-emerald-100 bg-emerald-50/50 text-emerald-700 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.2em] mb-6 md:mb-8 max-w-full">
                         <span className="relative flex h-2 w-2 shrink-0">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        <span className="truncate sm:whitespace-normal">Standard de Qualidade Marcobi</span>
+                        <span className="truncate sm:whitespace-normal">Padrão de Qualidade Marcobi</span>
                     </div>
 
                     <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-6 md:mb-8 max-w-5xl mx-auto leading-tight">
-                        Onde a química encontra <br />
+                        Controle e consistência em <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-blue-600">
-                            a precisão absoluta.
+                            processos industriais
                         </span>
                     </h1>
 
                     <p className="text-base sm:text-lg md:text-xl text-slate-500 max-w-3xl mx-auto font-light leading-relaxed mb-8 md:mb-12 px-2 sm:px-0">
-                        Não fabricamos apenas pigmentos. Projetamos superfícies resilientes através de rigor estatístico e controle molecular.
+                        Nossos produtos são desenvolvidos com controle técnico em todas as etapas, garantindo desempenho, repetibilidade e confiabilidade nas aplicações industriais.
                     </p>
 
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
                         <div className="flex items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-400 sm:border-r sm:pr-4 border-slate-200">
-                            <Activity size={14} /> LIVE LAB DATA
+                            <Activity size={14} /> PROCESSO MONITORADO
                         </div>
                         <div className="flex items-center gap-2 text-[10px] sm:text-xs font-mono text-slate-400">
-                            <ShieldCheck size={14} /> MIL-SPEC COMPLIANT
+                            <ShieldCheck size={14} /> CONTROLE DE QUALIDADE
                         </div>
                     </div>
                 </div>
@@ -82,6 +85,7 @@ function QualityPageImproved() {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:28px_28px] md:bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-40"></div>
             </section>
 
+            {/* STATS */}
             <section className="w-full bg-slate-900 py-10 md:py-12">
                 <div className="container mx-auto px-4 sm:px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -103,14 +107,16 @@ function QualityPageImproved() {
                 </div>
             </section>
 
+            {/* PROCESSO */}
             <section className="py-20 md:py-32 bg-slate-50">
                 <div className="container mx-auto px-4 sm:px-6">
+                    
                     <div className="max-w-4xl mb-12 md:mb-24 text-center md:text-left">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            O Ciclo de Tolerância Zero
+                            Controle de Qualidade em Processo
                         </h2>
                         <p className="text-slate-500 mt-4 text-base md:text-lg">
-                            Nossa linha de produção é um laboratório em escala industrial.
+                            Os processos produtivos seguem padrões técnicos definidos para garantir consistência e qualidade em cada lote.
                         </p>
                     </div>
 
@@ -146,37 +152,39 @@ function QualityPageImproved() {
                 </div>
             </section>
 
+            {/* CTA */}
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4 sm:px-6">
+                    
                     <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-16 relative overflow-hidden shadow-2xl">
+                        
                         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+                            
                             <div className="max-w-xl text-center md:text-left">
+                                
                                 <div className="flex items-center justify-center md:justify-start gap-3 text-emerald-400 mb-5 md:mb-6">
                                     <Beaker size={24} />
                                     <span className="text-xs sm:text-sm font-bold uppercase tracking-widest">
-                                        Acesso ao Laboratório
+                                        Suporte Técnico
                                     </span>
                                 </div>
 
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
-                                    Precisa de um ensaio técnico específico para seu projeto?
+                                    Necessita de orientação técnica para sua aplicação?
                                 </h2>
 
                                 <p className="text-slate-400 text-base md:text-lg mb-6 md:mb-8">
-                                    Disponibilizamos nossa estrutura de Salt Spray e UV para parceiros e projetos especiais.
+                                    Nossa equipe está disponível para auxiliar na especificação de produtos e aplicação conforme as condições do seu projeto.
                                 </p>
 
                                 <Link 
-                                    href="https://wa.me/5511995427107?text=Olá! Gostaria de solicitar um laudo técnico para um projeto específico."
+                                    href="https://wa.me/5511995427107?text=Olá! Gostaria de suporte técnico para um projeto."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block w-full sm:w-fit"
                                 >
                                     <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-8 md:px-12 py-5 w-full sm:w-fit shadow-xl shadow-emerald-200/50 uppercase tracking-widest text-[10px] md:text-xs flex items-center justify-center gap-3 transition-all active:scale-95">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" className="shrink-0">
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                                        </svg>
-                                        Solicitar Laudo Técnico
+                                        Solicitar suporte técnico
                                     </Button>
                                 </Link>
                             </div>
@@ -184,8 +192,8 @@ function QualityPageImproved() {
                             <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full md:w-auto md:min-w-[320px]">
                                 {[
                                     { icon: <Zap size={20} />, text: "Aderência" },
-                                    { icon: <Activity size={20} />, text: "Elasticidade" },
-                                    { icon: <ShieldCheck size={20} />, text: "Anticorrosão" },
+                                    { icon: <Activity size={20} />, text: "Resistência" },
+                                    { icon: <ShieldCheck size={20} />, text: "Proteção" },
                                     { icon: <FlaskConical size={20} />, text: "Químicos" },
                                 ].map((item, i) => (
                                     <div

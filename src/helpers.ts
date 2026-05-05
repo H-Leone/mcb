@@ -1,3 +1,4 @@
+// categories
 export const categories = [
     { name: "Todos os produtos", tag: null },
     { name: "Acrílico", tag: "acrilico" },
@@ -11,8 +12,10 @@ export const categories = [
     { name: "Solvente / Diluente", tag: "solvente-diluente" }
 ];
 
-const image = "https://marcobi.com.br/prova/wp-content/uploads/2025/12/8_MARCOBI_Produto_POLI.png";
+// 🔥 função para gerar imagem automaticamente
+const getImage = (index: number) => `/produto${index}.png`;
 
+// dados reutilizáveis
 const description =
     "A Tinta de Demarcação de Tráfego Acrílica MARCOBI é um revestimento desenvolvido para sinalização horizontal viária, indicado para aplicação em pavimentos asfálticos e de concreto. Sua formulação acrílica proporciona secagem rápida, boa aderência ao substrato e visibilidade adequada da sinalização. O produto é indicado para uso em áreas de tráfego urbano, industrial e logístico, contribuindo para a organização e segurança da circulação de veículos e pedestres.";
 
@@ -32,34 +35,66 @@ const applications = [
     "Sinalização horizontal em geral"
 ];
 
-export const products = [
-    { id: "665f1a0e9b1a4c001a000001", name: "Acrílico Premium Branco", tag: "acrilico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000002", name: "Acrílico Fosco Externo", tag: "acrilico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000003", name: "Acrílico Semi Brilho", tag: "acrilico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000004", name: "Acrílico Econômico", tag: "acrilico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000005", name: "Acrílico Profissional", tag: "acrilico", image, description, details, applications },
+// 🔥 lista base (sem repetição de campos grandes)
+const baseProducts = [
+    // Acrílico
+    { name: "Acrílico Premium Branco", tag: "acrilico" },
+    { name: "Acrílico Fosco Externo", tag: "acrilico" },
+    { name: "Acrílico Semi Brilho", tag: "acrilico" },
+    { name: "Acrílico Econômico", tag: "acrilico" },
+    { name: "Acrílico Profissional", tag: "acrilico" },
 
-    { id: "665f1a0e9b1a4c001a000006", name: "Sintético Brilhante Azul", tag: "alquidico-sintetico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000007", name: "Sintético Fosco Preto", tag: "alquidico-sintetico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000008", name: "Esmalte Sintético Industrial", tag: "alquidico-sintetico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000009", name: "Sintético Anticorrosivo", tag: "alquidico-sintetico", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000010", name: "Sintético Secagem Rápida", tag: "alquidico-sintetico", image, description, details, applications },
+    // Alquídico / Sintético
+    { name: "Sintético Brilhante Azul", tag: "alquidico-sintetico" },
+    { name: "Sintético Fosco Preto", tag: "alquidico-sintetico" },
+    { name: "Esmalte Sintético Industrial", tag: "alquidico-sintetico" },
+    { name: "Sintético Anticorrosivo", tag: "alquidico-sintetico" },
+    { name: "Sintético Secagem Rápida", tag: "alquidico-sintetico" },
 
-    { id: "665f1a0e9b1a4c001a000011", name: "Tinta Alta Temperatura 300°C", tag: "alta-temperatura", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000012", name: "Tinta Alta Temperatura 600°C", tag: "alta-temperatura", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000013", name: "Revestimento Térmico Industrial", tag: "alta-temperatura", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000014", name: "Esmalte Alta Temperatura Preto", tag: "alta-temperatura", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000015", name: "Proteção Térmica Metálica", tag: "alta-temperatura", image, description, details, applications },
+    // Alta temperatura
+    { name: "Tinta Alta Temperatura 300°C", tag: "alta-temperatura" },
+    { name: "Tinta Alta Temperatura 600°C", tag: "alta-temperatura" },
+    { name: "Revestimento Térmico Industrial", tag: "alta-temperatura" },
+    { name: "Esmalte Alta Temperatura Preto", tag: "alta-temperatura" },
+    { name: "Proteção Térmica Metálica", tag: "alta-temperatura" },
 
-    { id: "665f1a0e9b1a4c001a000016", name: "Antipichação Base Água", tag: "antipichacao", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000017", name: "Antipichação Base Solvente", tag: "antipichacao", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000018", name: "Verniz Antipichação Fosco", tag: "antipichacao", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000019", name: "Antipichação Permanente", tag: "antipichacao", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000020", name: "Antipichação Removível", tag: "antipichacao", image, description, details, applications },
+    // Antipichação
+    { name: "Antipichação Base Água", tag: "antipichacao" },
+    { name: "Antipichação Base Solvente", tag: "antipichacao" },
+    { name: "Verniz Antipichação Fosco", tag: "antipichacao" },
+    { name: "Antipichação Permanente", tag: "antipichacao" },
+    { name: "Antipichação Removível", tag: "antipichacao" },
 
-    { id: "665f1a0e9b1a4c001a000021", name: "Tinta Viária Amarela", tag: "demarcacao-de-trafego", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000022", name: "Tinta Viária Branca", tag: "demarcacao-de-trafego", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000023", name: "Demarcação Acrílica Viária", tag: "demarcacao-de-trafego", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000024", name: "Demarcação Base Solvente", tag: "demarcacao-de-trafego", image, description, details, applications },
-    { id: "665f1a0e9b1a4c001a000025", name: "Sinalização Horizontal Premium", tag: "demarcacao-de-trafego", image, description, details, applications }
+    // Demarcação
+    { name: "Tinta Viária Amarela", tag: "demarcacao-de-trafego" },
+    { name: "Tinta Viária Branca", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Acrílica Viária", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Base Solvente", tag: "demarcacao-de-trafego" },
+    { name: "Sinalização Horizontal Premium", tag: "demarcacao-de-trafego" },
+
+    { name: "Tinta Viária Amarela", tag: "demarcacao-de-trafego" },
+    { name: "Tinta Viária Branca", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Acrílica Viária", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Base Solvente", tag: "demarcacao-de-trafego" },
+    { name: "Sinalização Horizontal Premium", tag: "demarcacao-de-trafego" },
+
+    { name: "Tinta Viária Amarela", tag: "demarcacao-de-trafego" },
+    { name: "Tinta Viária Branca", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Acrílica Viária", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Base Solvente", tag: "demarcacao-de-trafego" },
+    { name: "Sinalização Horizontal Premium", tag: "demarcacao-de-trafego" },
+
+    { name: "Tinta Viária Amarela", tag: "demarcacao-de-trafego" },
+    { name: "Tinta Viária Branca", tag: "demarcacao-de-trafego" },
+    { name: "Demarcação Acrílica Viária", tag: "demarcacao-de-trafego" },
 ];
+
+export const products = baseProducts.map((product, index) => ({
+    id: (665 + index + 1).toString(),
+    name: product.name,
+    tag: product.tag,
+    image: getImage(index + 1),
+    description,
+    details,
+    applications
+}));

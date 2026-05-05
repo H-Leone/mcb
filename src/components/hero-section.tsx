@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CheckCircle2, MoveRight } from "lucide-react";
 import SobreNos from "../../public/sobre-nos-landing.jpeg";
+import Hero from  "../../public/hero-piso.png";
 import Button from "./button";
 
 export default function HeroSection() {
@@ -8,7 +9,7 @@ export default function HeroSection() {
         <section className="pt-32 md:pt-44 pb-24 md:pb-40 relative w-full flex items-center bg-slate-900 overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <Image
-                    src={SobreNos}
+                    src={Hero}
                     alt="Background Industrial"
                     fill
                     priority

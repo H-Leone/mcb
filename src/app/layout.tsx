@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import IsAbleToShow from "@/components/is-able-to-show";
+import MaintenanceBanner from "@/components/maintenance-banner";
 
 const poppins = Poppins({
   variable: "--poppins-font",
@@ -82,6 +83,7 @@ export default function RootLayout({
         <IsAbleToShow>
           <div>{children}</div>
         </IsAbleToShow>
+        <MaintenanceBanner/>
       </body>
     </html>
   );

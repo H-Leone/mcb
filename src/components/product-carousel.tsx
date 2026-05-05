@@ -3,12 +3,15 @@
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import SobreNos from "../../public/sobre-nos-landing.jpeg"
+import Carrosel_1 from "../../public/carrossel-1.jpeg"
+import Carrosel_2 from "../../public/carrossel-2.jpeg"
+import Carrosel_3 from "../../public/carrossel-3.png"
 import { Pause, Play } from "lucide-react"
 
 const items = [
-    { id: 1, title: "Esmaltes Sintéticos" },
-    { id: 2, title: "Vernizes PU" },
-    { id: 3, title: "Primers Epóxi" }
+    { id: 1, title: "Esmaltes Sintéticos", src: Carrosel_1 },
+    { id: 2, title: "Vernizes PU", src: Carrosel_2 },
+    { id: 3, title: "Primers Epóxi", src: Carrosel_3 }
 ]
 
 export default function ProductCarousel() {
@@ -60,7 +63,7 @@ export default function ProductCarousel() {
                     >
                         <div className="w-[280px] sm:w-[320px] md:w-[360px] h-[360px] sm:h-[420px] md:h-[480px] rounded-[24px] md:rounded-[32px] overflow-hidden relative shadow-xl mx-auto">
                             <Image
-                                src={SobreNos}
+                                src={item.src}
                                 alt={item.title}
                                 fill
                                 className="object-cover object-center"

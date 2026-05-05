@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,2044,e=>{e.v("/_next/static/media/sobre-nos-landing.c3fc3e8f.jpeg")}]);
